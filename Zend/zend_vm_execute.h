@@ -5860,7 +5860,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_C
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -8102,7 +8102,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_C
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -8998,7 +8998,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_C
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -10523,7 +10523,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_C
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -23643,7 +23643,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_V
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -25950,7 +25950,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_V
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -27420,7 +27420,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_V
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -29754,7 +29754,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_V
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -32000,7 +32000,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_U
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -33952,7 +33952,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_U
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -34527,7 +34527,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_U
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;
@@ -36571,7 +36571,7 @@ static ZEND_OPCODE_HANDLER_RET ZEND_FASTCALL ZEND_INIT_STATIC_METHOD_CALL_SPEC_U
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;

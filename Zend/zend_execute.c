@@ -3956,7 +3956,7 @@ static zend_never_inline zend_execute_data *zend_init_dynamic_call_string(zend_s
 		zend_string_release_ex(lcname, 0);
 		zend_string_release_ex(mname, 0);
 
-		if (UNEXPECTED(!(fbc->common.fn_flags & ZEND_ACC_STATIC))) {
+		if (UNEXPECTED(!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC)))) {
 			zend_non_static_method_call(fbc);
 			return NULL;
 		}
@@ -4078,7 +4078,7 @@ static zend_never_inline zend_execute_data *zend_init_dynamic_call_array(zend_ar
 				}
 				return NULL;
 			}
-			if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+			if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 				zend_non_static_method_call(fbc);
 				return NULL;
 			}

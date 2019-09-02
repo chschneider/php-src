@@ -3756,7 +3756,7 @@ ZEND_VM_HANDLER(113, ZEND_INIT_STATIC_METHOD_CALL, UNUSED|CLASS_FETCH|CONST|VAR,
 		}
 	}
 
-	if (!(fbc->common.fn_flags & ZEND_ACC_STATIC)) {
+	if (!(fbc->common.fn_flags & (ZEND_ACC_STATIC | ZEND_ACC_OPTIONAL_STATIC))) {
 		if (Z_TYPE(EX(This)) == IS_OBJECT && instanceof_function(Z_OBJCE(EX(This)), ce)) {
 			ce = (zend_class_entry*)Z_OBJ(EX(This));
 			call_info = ZEND_CALL_NESTED_FUNCTION | ZEND_CALL_HAS_THIS;

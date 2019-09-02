@@ -278,7 +278,7 @@ typedef struct _zend_oparray_context {
 /* Class has unresolved variance obligations.             |     |     |     */
 #define ZEND_ACC_UNRESOLVED_VARIANCE     (1 << 21) /*  X  |     |     |     */
 /*                                                        |     |     |     */
-/* Function Flags (unused: 17, 23, 26)                    |     |     |     */
+/* Function Flags (unused: 23, 26)                        |     |     |     */
 /* ==============                                         |     |     |     */
 /*                                                        |     |     |     */
 /* deprecation flag                                       |     |     |     */
@@ -299,6 +299,9 @@ typedef struct _zend_oparray_context {
 /* "main" op_array with                                   |     |     |     */
 /* ZEND_DECLARE_CLASS_DELAYED opcodes                     |     |     |     */
 #define ZEND_ACC_EARLY_BINDING           (1 << 16) /*     |  X  |     |     */
+/*                                                        |     |     |     */
+/* function can be called statically and in object        |     |     |     */
+#define ZEND_ACC_OPTIONAL_STATIC         (1 << 17) /*     |  X  |     |     */
 /*                                                        |     |     |     */
 /* call through user function trampoline. e.g.            |     |     |     */
 /* __call, __callstatic                                   |     |     |     */
