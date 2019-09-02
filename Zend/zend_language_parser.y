@@ -802,7 +802,7 @@ method_modifiers:
 
 non_empty_member_modifiers:
 		member_modifier			{ $$ = $1; }
-	|	'?' T_STATIC			{ $$ = ZEND_ACC_OPTIONAL_STATIC; }
+	|	'?' T_STATIC			{ $$ = ZEND_ACC_ALLOW_STATIC; }
 	|	non_empty_member_modifiers member_modifier
 			{ $$ = zend_add_member_modifier($1, $2); if (!$$) { YYERROR; } }
 ;

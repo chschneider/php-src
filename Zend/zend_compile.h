@@ -301,7 +301,7 @@ typedef struct _zend_oparray_context {
 #define ZEND_ACC_EARLY_BINDING           (1 << 16) /*     |  X  |     |     */
 /*                                                        |     |     |     */
 /* function can be called statically and in object        |     |     |     */
-#define ZEND_ACC_OPTIONAL_STATIC         (1 << 17) /*     |  X  |     |     */
+#define ZEND_ACC_ALLOW_STATIC            (1 << 17) /*     |  X  |     |     */
 /*                                                        |     |     |     */
 /* call through user function trampoline. e.g.            |     |     |     */
 /* __call, __callstatic                                   |     |     |     */
