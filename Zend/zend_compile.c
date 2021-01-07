@@ -3381,6 +3381,7 @@ uint32_t zend_compile_args(
 	/* Whether there may be any undef arguments due to the use of named arguments. */
 	zend_bool may_have_undef = 0;
 	/* Whether there may be any extra named arguments collected into a variadic. */
+	uint32_t extra_arg_count = 0;
 	*may_have_extra_named_args = 0;
 
 	for (i = 0; i < args->children; ++i) {
@@ -3408,9 +3409,7 @@ uint32_t zend_compile_args(
 
 			/* Unpack may contain named arguments. */
 			may_have_undef = 1;
-			if (!fbc || (fbc->common.fn_flags & ZEND_ACC_VARIADIC)) {
-				*may_have_extra_named_args = 1;
-			}
+			*may_have_extra_named_args = 1;
 			continue;
 		}
 
@@ -3420,7 +3419,6 @@ uint32_t zend_compile_args(
 					"Cannot combine named arguments and argument unpacking");
 			}
 
-			uses_named_args = 1;
 			arg_name = zval_make_interned_string(zend_ast_get_zval(arg->child[0]));
 			arg = arg->child[1];
 
@@ -3435,9 +3433,13 @@ uint32_t zend_compile_args(
 					may_have_undef = 1;
 					if (arg_num == (uint32_t) -1 && (fbc->common.fn_flags & ZEND_ACC_VARIADIC)) {
 						*may_have_extra_named_args = 1;
+						extra_arg_count++;
+					} else {
+						uses_named_args = 1;
 					}
 				}
 			} else {
+				uses_named_args = 1;
 				arg_num = (uint32_t) -1;
 				may_have_undef = 1;
 				*may_have_extra_named_args = 1;
@@ -3454,6 +3456,7 @@ uint32_t zend_compile_args(
 			}
 
 			arg_count++;
+			arg_num -= extra_arg_count;
 		}
 
 		/* Treat passing of $GLOBALS the same as passing a call.
