@@ -769,6 +769,7 @@ class ArgInfo {
     public /* readonly */ bool $isVariadic;
     public ?Type $type;
     private /* readonly */ ?Type $phpDocType;
+    private /* readonly */ ?string $phpDocDescription;
     public ?string $defaultValue;
     /** @var AttributeInfo[] */
     public array $attributes;
@@ -782,6 +783,7 @@ class ArgInfo {
         bool $isVariadic,
         ?Type $type,
         ?Type $phpDocType,
+        ?string $phpDocDescription,
         ?string $defaultValue,
         array $attributes
     ) {
@@ -790,6 +792,7 @@ class ArgInfo {
         $this->isVariadic = $isVariadic;
         $this->type = $type;
         $this->phpDocType = $phpDocType;
+        $this->phpDocDescription = $phpDocDescription;
         $this->defaultValue = $defaultValue;
         $this->attributes = $attributes;
     }
@@ -843,43 +846,50 @@ class ArgInfo {
         $argKind = $this->isVariadic ? "ARG_VARIADIC" : "ARG";
         $argDefaultKind = $this->hasProperDefaultValue() ? "_WITH_DEFAULT_VALUE" : "";
         $argType = $this->type;
+        $docComment = $this->phpDocDescription;
+        $withDocComment = $docComment ? "_DOCCOMMENT" : "";
         if ($argType !== null) {
             if (null !== $simpleArgType = $argType->tryToSimpleType()) {
                 if ($simpleArgType->isBuiltin) {
                     return sprintf(
-                        "\tZEND_%s_TYPE_INFO%s(%s, %s, %s, %d%s)\n",
-                        $argKind, $argDefaultKind, $this->sendBy, $this->name,
+                        "\tZEND_%s_TYPE_INFO%s%s(%s, %s, %s, %d%s%s)\n",
+                        $argKind, $argDefaultKind, $withDocComment, $this->sendBy, $this->name,
                         $simpleArgType->toTypeCode(), $argType->isNullable(),
-                        $this->hasProperDefaultValue() ? ", " . $this->getDefaultValueAsArginfoString() : ""
+                        $this->hasProperDefaultValue() ? ", " . $this->getDefaultValueAsArginfoString() : "",
+                        $withDocComment ? (", " . json_encode($docComment)) : '',
                     );
                 }
                 return sprintf(
-                    "\tZEND_%s_OBJ_INFO%s(%s, %s, %s, %d%s)\n",
-                    $argKind, $argDefaultKind, $this->sendBy, $this->name,
+                    "\tZEND_%s_OBJ_INFO%s%s(%s, %s, %s, %d%s%s)\n",
+                    $argKind, $argDefaultKind, $withDocComment, $this->sendBy, $this->name,
                     $simpleArgType->toEscapedName(), $argType->isNullable(),
-                    $this->hasProperDefaultValue() ? ", " . $this->getDefaultValueAsArginfoString() : ""
+                    $this->hasProperDefaultValue() ? ", " . $this->getDefaultValueAsArginfoString() : "",
+                    $withDocComment ? (", " . json_encode($docComment)) : '',
                 );
             }
             $arginfoType = $argType->toArginfoType();
             if ($arginfoType->hasClassType()) {
                 return sprintf(
-                    "\tZEND_%s_OBJ_TYPE_MASK(%s, %s, %s, %s%s)\n",
-                    $argKind, $this->sendBy, $this->name,
+                    "\tZEND_%s_OBJ_TYPE_MASK%s(%s, %s, %s, %s%s%s)\n",
+                    $argKind, $withDocComment, $this->sendBy, $this->name,
                     $arginfoType->toClassTypeString(), $arginfoType->toTypeMask(),
-                    !$this->isVariadic ? ", " . $this->getDefaultValueAsArginfoString() : ""
+                    !$this->isVariadic ? ", " . $this->getDefaultValueAsArginfoString() : "",
+                    $withDocComment ? (", " . json_encode($docComment)) : '',
                 );
             }
             return sprintf(
-                "\tZEND_%s_TYPE_MASK(%s, %s, %s, %s)\n",
-                $argKind, $this->sendBy, $this->name,
+                "\tZEND_%s_TYPE_MASK%s(%s, %s, %s, %s%s)\n",
+                $argKind, $withDocComment, $this->sendBy, $this->name,
                 $arginfoType->toTypeMask(),
-                $this->getDefaultValueAsArginfoString()
+                $this->getDefaultValueAsArginfoString(),
+                $withDocComment ? (", " . json_encode($docComment)) : '',
             );
         }
         return sprintf(
-            "\tZEND_%s_INFO%s(%s, %s%s)\n",
-            $argKind, $argDefaultKind, $this->sendBy, $this->name,
-            $this->hasProperDefaultValue() ? ", " . $this->getDefaultValueAsArginfoString() : ""
+            "\tZEND_%s_INFO%s%s(%s, %s%s%s)\n",
+            $argKind, $argDefaultKind, $withDocComment, $this->sendBy, $this->name,
+            $this->hasProperDefaultValue() ? ", " . $this->getDefaultValueAsArginfoString() : "",
+            $withDocComment ? (", " . json_encode($docComment)) : '',
         );
     }
 }
@@ -4629,6 +4639,24 @@ class DocCommentTag {
         return trim($matches[1]);
     }
 
+    public function getDescription(): string {
+        $value = $this->getValue();
+
+        $matches = [];
+
+        if ($this->name === "param") {
+            preg_match('/^\s*(?:[\w\|\\\\\[\]<>, ]+)\s*(?:[{(]|(?:\.\.\.)?\$\w+)(.*)$/', $value, $matches);
+        } elseif ($this->name === "return" || $this->name === "var") {
+            preg_match('/^\s*(?:[\w\|\\\\\[\]<>, ]+)(.*)/', $value, $matches);
+        }
+
+        if (!isset($matches[1])) {
+            throw new Exception("@$this->name doesn't contain a description or has an invalid format \"$value\"");
+        }
+
+        return trim($matches[1]);
+    }
+
     public function getVariableName(): string {
         $value = $this->value;
         if ($value === null || strlen($value) === 0) {
@@ -4791,6 +4819,7 @@ function parseFunctionLike(
 
                     case 'param':
                         $docParamTypes[$tag->getVariableName()] = $tag->getType();
+                        $docParamDescription[$tag->getVariableName()] = $tag->getDescription();
                         break;
 
                     case 'refcount':
@@ -4869,6 +4898,7 @@ function parseFunctionLike(
                 $param->variadic,
                 $type,
                 isset($docParamTypes[$varName]) ? Type::fromString($docParamTypes[$varName]) : null,
+                $docParamDescription[$varName] ?? null,
                 $param->default ? $prettyPrinter->prettyPrintExpr($param->default) : null,
                 AttributeInfo::createFromGroups($param->attrGroups)
             );

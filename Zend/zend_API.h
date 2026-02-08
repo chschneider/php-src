@@ -129,40 +129,68 @@ typedef struct _zend_fcall_info_cache {
 /* Arginfo structures without type information */
 #define ZEND_ARG_INFO(pass_by_ref, name) \
 	{ #name, ZEND_TYPE_INIT_NONE(_ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, NULL },
+#define ZEND_ARG_INFO_DOCCOMMENT(pass_by_ref, name, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_NONE(_ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, doc_comment },
 #define ZEND_ARG_INFO_WITH_DEFAULT_VALUE(pass_by_ref, name, default_value) \
 	{ #name, ZEND_TYPE_INIT_NONE(_ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, NULL },
+#define ZEND_ARG_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(pass_by_ref, name, default_value, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_NONE(_ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, doc_comment },
 #define ZEND_ARG_VARIADIC_INFO(pass_by_ref, name) \
 	{ #name, ZEND_TYPE_INIT_NONE(_ZEND_ARG_INFO_FLAGS(pass_by_ref, 1, 0)), NULL, NULL },
+#define ZEND_ARG_VARIADIC_INFO_DOCCOMMENT(pass_by_ref, name, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_NONE(_ZEND_ARG_INFO_FLAGS(pass_by_ref, 1, 0)), NULL, doc_comment },
 
 /* Arginfo structures with simple type information */
 #define ZEND_ARG_TYPE_INFO(pass_by_ref, name, type_hint, allow_null) \
 	{ #name, ZEND_TYPE_INIT_CODE(type_hint, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, NULL },
+#define ZEND_ARG_TYPE_INFO_DOCCOMMENT(pass_by_ref, name, type_hint, allow_null, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CODE(type_hint, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, doc_comment },
 #define ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(pass_by_ref, name, type_hint, allow_null, default_value) \
 	{ #name, ZEND_TYPE_INIT_CODE(type_hint, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, NULL },
+#define ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(pass_by_ref, name, type_hint, allow_null, default_value, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CODE(type_hint, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, doc_comment },
 #define ZEND_ARG_VARIADIC_TYPE_INFO(pass_by_ref, name, type_hint, allow_null) \
 	{ #name, ZEND_TYPE_INIT_CODE(type_hint, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 1, 0)), NULL, NULL },
+#define ZEND_ARG_VARIADIC_TYPE_INFO_DOCCOMMENT(pass_by_ref, name, type_hint, allow_null, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CODE(type_hint, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 1, 0)), NULL, doc_comment },
 
 /* Arginfo structures with complex type information */
 #define ZEND_ARG_TYPE_MASK(pass_by_ref, name, type_mask, default_value) \
 	{ #name, ZEND_TYPE_INIT_MASK(type_mask | _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, NULL },
+#define ZEND_ARG_TYPE_MASK_DOCCOMMENT(pass_by_ref, name, type_mask, default_value, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_MASK(type_mask | _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, doc_comment },
 #define ZEND_ARG_OBJ_TYPE_MASK(pass_by_ref, name, class_name, type_mask, default_value) \
 	{ #name, ZEND_TYPE_INIT_CLASS_CONST_MASK(#class_name, type_mask | _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, NULL },
+#define ZEND_ARG_OBJ_TYPE_MASK_DOCCOMMENT(pass_by_ref, name, class_name, type_mask, default_value, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CLASS_CONST_MASK(#class_name, type_mask | _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, doc_comment },
 #define ZEND_ARG_VARIADIC_OBJ_TYPE_MASK(pass_by_ref, name, class_name, type_mask) \
 	{ #name, ZEND_TYPE_INIT_CLASS_CONST_MASK(#class_name, type_mask | _ZEND_ARG_INFO_FLAGS(pass_by_ref, 1, 0)), NULL, NULL },
+#define ZEND_ARG_VARIADIC_OBJ_TYPE_MASK_DOCCOMMENT(pass_by_ref, name, class_name, type_mask, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CLASS_CONST_MASK(#class_name, type_mask | _ZEND_ARG_INFO_FLAGS(pass_by_ref, 1, 0)), NULL, doc_comment },
 
 /* Arginfo structures with object type information */
 #define ZEND_ARG_OBJ_INFO(pass_by_ref, name, class_name, allow_null) \
 	{ #name, ZEND_TYPE_INIT_CLASS_CONST(#class_name, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, NULL },
+#define ZEND_ARG_OBJ_INFO_DOCCOMMENT(pass_by_ref, name, class_name, allow_null, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CLASS_CONST(#class_name, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, doc_comment },
 #define ZEND_ARG_OBJ_INFO_WITH_DEFAULT_VALUE(pass_by_ref, name, class_name, allow_null, default_value) \
 	{ #name, ZEND_TYPE_INIT_CLASS_CONST(#class_name, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, NULL },
+#define ZEND_ARG_OBJ_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(pass_by_ref, name, class_name, allow_null, default_value, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CLASS_CONST(#class_name, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), default_value, doc_comment },
 #define ZEND_ARG_VARIADIC_OBJ_INFO(pass_by_ref, name, class_name, allow_null) \
 	{ #name, ZEND_TYPE_INIT_CLASS_CONST(#class_name, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 1, 0)), NULL, NULL },
+#define ZEND_ARG_VARIADIC_OBJ_INFO_DOCCOMMENT(pass_by_ref, name, class_name, allow_null, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CLASS_CONST(#class_name, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 1, 0)), NULL, doc_comment },
 
 /* Legacy arginfo structures */
 #define ZEND_ARG_ARRAY_INFO(pass_by_ref, name, allow_null) \
 	{ #name, ZEND_TYPE_INIT_CODE(IS_ARRAY, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, NULL },
+#define ZEND_ARG_ARRAY_INFO_DOCCOMMENT(pass_by_ref, name, allow_null, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CODE(IS_ARRAY, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, doc_comment },
 #define ZEND_ARG_CALLABLE_INFO(pass_by_ref, name, allow_null) \
 	{ #name, ZEND_TYPE_INIT_CODE(IS_CALLABLE, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, NULL },
+#define ZEND_ARG_CALLABLE_INFO_DOCCOMMENT(pass_by_ref, name, allow_null, doc_comment) \
+	{ #name, ZEND_TYPE_INIT_CODE(IS_CALLABLE, allow_null, _ZEND_ARG_INFO_FLAGS(pass_by_ref, 0, 0)), NULL, doc_comment },
 
 #define ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX2(name, return_reference, required_num_args, class_name, allow_null, is_tentative_return_type) \
 	static const zend_internal_arg_info name[] = { \
