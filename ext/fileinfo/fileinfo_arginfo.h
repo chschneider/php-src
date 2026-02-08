@@ -1,5 +1,5 @@
 /* This is a generated file, edit fileinfo.stub.php instead.
- * Stub hash: 311d1049e32af017b44e260a00f13830714b1e96 */
+ * Stub hash: 33a1fbf5dce120db7148acfc42698ef5b2768884 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_finfo_open, 0, 0, finfo, MAY_BE_FALSE)
 	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, flags, IS_LONG, 0, "FILEINFO_NONE")
@@ -62,12 +62,12 @@ ZEND_FUNCTION(finfo_buffer);
 ZEND_FUNCTION(mime_content_type);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(finfo_open, arginfo_finfo_open)
+	ZEND_RAW_FENTRY("finfo_open", zif_finfo_open, arginfo_finfo_open, 0, NULL, "/**\n * Create a new finfo instance\n * @return finfo|false\n */")
 	ZEND_RAW_FENTRY("finfo_close", zif_finfo_close, arginfo_finfo_close, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(finfo_set_flags, arginfo_finfo_set_flags)
-	ZEND_FE(finfo_file, arginfo_finfo_file)
-	ZEND_FE(finfo_buffer, arginfo_finfo_buffer)
-	ZEND_FE(mime_content_type, arginfo_mime_content_type)
+	ZEND_RAW_FENTRY("finfo_set_flags", zif_finfo_set_flags, arginfo_finfo_set_flags, 0, NULL, "/**\n * Set libmagic configuration options\n * @return true|true\n */")
+	ZEND_RAW_FENTRY("finfo_file", zif_finfo_file, arginfo_finfo_file, 0, NULL, "/**\n * Return information about a file\n * @return string|false|string|false\n */")
+	ZEND_RAW_FENTRY("finfo_buffer", zif_finfo_buffer, arginfo_finfo_buffer, 0, NULL, "/**\n * Return information about a string buffer\n * @return string|false|string|false\n */")
+	ZEND_RAW_FENTRY("mime_content_type", zif_mime_content_type, arginfo_mime_content_type, 0, NULL, "/**\n * Detect MIME Content-type for a file\n * @return string|false\n */")
 	ZEND_FE_END
 };
 

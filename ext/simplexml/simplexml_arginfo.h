@@ -1,25 +1,25 @@
 /* This is a generated file, edit simplexml.stub.php instead.
- * Stub hash: cee51320f0f09f14962fb72125ef8ff6073a642a */
+ * Stub hash: db0eb77f8e625c134f743dc7e90ec947109b3d05 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_simplexml_load_file, 0, 1, SimpleXMLElement, MAY_BE_FALSE)
-	ZEND_ARG_TYPE_INFO(0, filename, IS_STRING, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, class_name, IS_STRING, 1, "SimpleXMLElement::class")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, options, IS_LONG, 0, "0")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, namespace_or_prefix, IS_STRING, 0, "\"\"")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, is_prefix, _IS_BOOL, 0, "false")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, filename, IS_STRING, 0, "Path to the XML file")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, class_name, IS_STRING, 1, "SimpleXMLElement::class", "You may use this optional parameter so that simplexml_load_file will return an object of the specified class. That class should extend the SimpleXMLElement class.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, options, IS_LONG, 0, "0", "Bitwise OR of the libxml option constants.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, namespace_or_prefix, IS_STRING, 0, "\"\"", "Namespace prefix or URI.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, is_prefix, _IS_BOOL, 0, "false", "true if namespace_or_prefix is a prefix, false if it's a URI; defaults to false.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_simplexml_load_string, 0, 1, SimpleXMLElement, MAY_BE_FALSE)
-	ZEND_ARG_TYPE_INFO(0, data, IS_STRING, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, class_name, IS_STRING, 1, "SimpleXMLElement::class")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, options, IS_LONG, 0, "0")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, namespace_or_prefix, IS_STRING, 0, "\"\"")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, is_prefix, _IS_BOOL, 0, "false")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, data, IS_STRING, 0, "A well-formed XML string")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, class_name, IS_STRING, 1, "SimpleXMLElement::class", "You may use this optional parameter so that simplexml_load_string will return an object of the specified class. That class should extend the SimpleXMLElement class.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, options, IS_LONG, 0, "0", "Bitwise OR of the libxml option constants.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, namespace_or_prefix, IS_STRING, 0, "\"\"", "Namespace prefix or URI.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, is_prefix, _IS_BOOL, 0, "false", "true if namespace_or_prefix is a prefix, false if it's a URI; defaults to false.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_simplexml_import_dom, 0, 1, SimpleXMLElement, 1)
-	ZEND_ARG_TYPE_INFO(0, node, IS_OBJECT, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, class_name, IS_STRING, 1, "SimpleXMLElement::class")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, node, IS_OBJECT, 0, "A DOM Element node")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, class_name, IS_STRING, 1, "SimpleXMLElement::class", "You may use this optional parameter so that simplexml_import_dom will return an object of the specified class. That class should extend the SimpleXMLElement class.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_TENTATIVE_RETURN_TYPE_MASK_EX(arginfo_class_SimpleXMLElement_xpath, 0, 1, MAY_BE_ARRAY|MAY_BE_NULL|MAY_BE_FALSE)
@@ -129,9 +129,9 @@ ZEND_METHOD(SimpleXMLElement, hasChildren);
 ZEND_METHOD(SimpleXMLElement, getChildren);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(simplexml_load_file, arginfo_simplexml_load_file)
-	ZEND_FE(simplexml_load_string, arginfo_simplexml_load_string)
-	ZEND_FE(simplexml_import_dom, arginfo_simplexml_import_dom)
+	ZEND_RAW_FENTRY("simplexml_load_file", zif_simplexml_load_file, arginfo_simplexml_load_file, 0, NULL, "/**\n * Interprets an XML file into an object\n * @param string $filename Path to the XML file\n * @param string|null $class_name You may use this optional parameter so that simplexml_load_file will return an object of the specified class. That class should extend the SimpleXMLElement class.\n * @param int $options Bitwise OR of the libxml option constants.\n * @param string $namespace_or_prefix Namespace prefix or URI.\n * @param bool $is_prefix true if namespace_or_prefix is a prefix, false if it\'s a URI; defaults to false.\n * @return SimpleXMLElement|false\n */")
+	ZEND_RAW_FENTRY("simplexml_load_string", zif_simplexml_load_string, arginfo_simplexml_load_string, 0, NULL, "/**\n * Interprets a string of XML into an object\n * @param string $data A well-formed XML string\n * @param string|null $class_name You may use this optional parameter so that simplexml_load_string will return an object of the specified class. That class should extend the SimpleXMLElement class.\n * @param int $options Bitwise OR of the libxml option constants.\n * @param string $namespace_or_prefix Namespace prefix or URI.\n * @param bool $is_prefix true if namespace_or_prefix is a prefix, false if it\'s a URI; defaults to false.\n * @return SimpleXMLElement|false\n */")
+	ZEND_RAW_FENTRY("simplexml_import_dom", zif_simplexml_import_dom, arginfo_simplexml_import_dom, 0, NULL, "/**\n * Get a SimpleXMLElement object from an XML or HTML node\n * @param object $node A DOM Element node\n * @param string|null $class_name You may use this optional parameter so that simplexml_import_dom will return an object of the specified class. That class should extend the SimpleXMLElement class.\n * @return SimpleXMLElement|null\n */")
 	ZEND_FE_END
 };
 

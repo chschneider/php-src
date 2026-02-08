@@ -36,14 +36,26 @@ final class SysvMessageQueue
 {
 }
 
+/** @genstubs-expose-comment-block
+ * Create or attach to a message queue
+ * @return SysvMessageQueue|false
+ */
 function msg_get_queue(int $key, int $permissions = 0666): SysvMessageQueue|false {}
 
+/** @genstubs-expose-comment-block
+ * Send a message to a message queue
+ * @return bool
+ */
 /**
  * @param string|int|float|bool $message
  * @param int $error_code
  */
 function msg_send(SysvMessageQueue $queue, int $message_type, $message, bool $serialize = true, bool $blocking = true, &$error_code = null): bool {}
 
+/** @genstubs-expose-comment-block
+ * Receive a message from a message queue
+ * @return bool
+ */
 /**
  * @param int $received_message_type
  * @param int $error_code
@@ -59,10 +71,26 @@ function msg_receive(
     &$error_code = null
 ): bool {}
 
+/** @genstubs-expose-comment-block
+ * Destroy a message queue
+ * @return bool
+ */
 function msg_remove_queue(SysvMessageQueue $queue): bool {}
 
+/** @genstubs-expose-comment-block
+ * Returns information from the message queue data structure
+ * @return array|false
+ */
 function msg_stat_queue(SysvMessageQueue $queue): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Set information in the message queue data structure
+ * @return bool
+ */
 function msg_set_queue(SysvMessageQueue $queue, array $data): bool {}
 
+/** @genstubs-expose-comment-block
+ * Check whether a message queue exists
+ * @return bool
+ */
 function msg_queue_exists(int $key): bool {}

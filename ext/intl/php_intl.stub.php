@@ -316,12 +316,30 @@ function collator_get_sort_key(Collator $object, string $string): string|false {
 
 /* common */
 
+/** @genstubs-expose-comment-block
+ * Get the last error code
+ * @return int
+ */
 function intl_get_error_code(): int {}
 
+/** @genstubs-expose-comment-block
+ * Get description of the last error
+ * @return string
+ */
 function intl_get_error_message(): string {}
 
+/** @genstubs-expose-comment-block
+ * Check whether the given error code indicates failure
+ * @param int $errorCode is a value that returned by functions: intl_get_error_code, collator_get_error_code .
+ * @return bool
+ */
 function intl_is_failure(int $errorCode): bool {}
 
+/** @genstubs-expose-comment-block
+ * Get symbolic name for a given error code
+ * @param int $errorCode ICU error code.
+ * @return string
+ */
 function intl_error_name(int $errorCode): string {}
 
 /* dateformat */

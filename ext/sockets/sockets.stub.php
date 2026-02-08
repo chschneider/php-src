@@ -2213,49 +2213,168 @@ final class AddressInfo
 {
 }
 
+/** @genstubs-expose-comment-block
+ * Runs the select() system call on the given arrays of sockets with a specified timeout
+ * @param array|null $read The sockets listed in the read array will be watched to see if characters become available for reading (more precisely, to see if a read will not block - in particular, a socket is also ready on end-of-file, in which case a socket_read will return a zero length string).
+ * @param array|null $write The sockets listed in the write array will be watched to see if a write will not block.
+ * @param array|null $except The sockets listed in the except array will be watched for exceptions.
+ * @param int|null $seconds The seconds and microseconds together form the timeout parameter. The timeout is an upper bound on the amount of time elapsed before socket_select return. seconds may be zero , causing socket_select to return immediately. This is useful for polling. If seconds is null (no timeout), socket_select can block indefinitely.
+ * @return int|false
+ */
 function socket_select(?array &$read, ?array &$write, ?array &$except, ?int $seconds, int $microseconds = 0): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Opens a socket on port to accept connections
+ * @param int $port The port on which to listen on all interfaces.
+ * @param int $backlog The backlog parameter defines the maximum length the queue of pending connections may grow to. SOMAXCONN may be passed as backlog parameter, see socket_listen for more information.
+ * @return Socket|false
+ */
 function socket_create_listen(int $port, int $backlog = SOMAXCONN): Socket|false {}
 
+/** @genstubs-expose-comment-block
+ * Accepts a connection on a socket
+ * @param Socket $socket A Socket instance created with socket_create.
+ * @return Socket|false
+ */
 function socket_accept(Socket $socket): Socket|false {}
 
+/** @genstubs-expose-comment-block
+ * Sets nonblocking mode for file descriptor fd
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @return bool
+ */
 function socket_set_nonblock(Socket $socket): bool {}
 
+/** @genstubs-expose-comment-block
+ * Sets blocking mode on a socket
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @return bool
+ */
 function socket_set_block(Socket $socket): bool {}
 
+/** @genstubs-expose-comment-block
+ * Listens for a connection on a socket
+ * @param Socket $socket A Socket instance created with socket_create or socket_addrinfo_bind
+ * @param int $backlog A maximum of backlog incoming connections will be queued for processing. If a connection request arrives with the queue full the client may receive an error with an indication of ECONNREFUSED, or, if the underlying protocol supports retransmission, the request may be ignored so that retries may succeed.
+ * @return bool
+ */
 function socket_listen(Socket $socket, int $backlog = 0): bool {}
 
+/** @genstubs-expose-comment-block
+ * Closes a Socket instance
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @return void
+ */
 function socket_close(Socket $socket): void {}
 
+/** @genstubs-expose-comment-block
+ * Write to a socket
+ * @param string $data The buffer to be written.
+ * @param int|null $length The optional parameter length can specify an alternate length of bytes written to the socket. If this length is greater than data's length, it is silently truncated to the length of data.
+ * @return int|false
+ */
 function socket_write(Socket $socket, string $data, ?int $length = null): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Reads a maximum of length bytes from a socket
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @param int $length The maximum number of bytes read is specified by the length parameter. Otherwise you can use \r,  , or \0 to end reading (depending on the mode parameter, see below).
+ * @param int $mode Optional mode parameter is a named constant: PHP_BINARY_READ (Default) - use the system recv() function. Safe for reading binary data. PHP_NORMAL_READ - reading stops at   or \r.
+ * @return string|false
+ */
 function socket_read(Socket $socket, int $length, int $mode = PHP_BINARY_READ): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Queries the local side of the given socket which may either result in host/port or in a Unix filesystem path, dependent on its type
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @param string $address If the given socket is of type AF_INET or AF_INET6, socket_getsockname will return the local IP address in appropriate notation (e.g. 127.0.0.1 or fe80::1) in the address parameter and, if the optional port parameter is present, also the associated port.
+ * @param int $port If provided, this will hold the associated port.
+ * @return bool
+ */
 /**
  * @param string $address
  * @param int $port
  */
 function socket_getsockname(Socket $socket, &$address, &$port = null): bool {}
 
+/** @genstubs-expose-comment-block
+ * Queries the remote side of the given socket
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @param string $address If the given socket is of type AF_INET or AF_INET6, socket_getpeername will return the peers (remote) IP address in appropriate notation (e.g. 127.0.0.1 or fe80::1) in the address parameter and, if the optional port parameter is present, also the associated port.
+ * @param int $port If given, this will hold the port associated to address.
+ * @return bool
+ */
 /**
  * @param string $address
  * @param int $port
  */
 function socket_getpeername(Socket $socket, &$address, &$port = null): bool {}
 
+/** @genstubs-expose-comment-block
+ * Create a socket (endpoint for communication)
+ * @param int $domain The domain parameter specifies the protocol family to be used by the socket.
+ * @param int $type The type parameter selects the type of communication to be used by the socket.
+ * @param int $protocol The protocol parameter sets the specific protocol within the specified domain to be used when communicating on the returned socket. The proper value can be retrieved by name by using getprotobyname. If the desired protocol is TCP, or UDP the corresponding constants SOL_TCP, and SOL_UDP can also be used.
+ * @return Socket|false
+ */
 function socket_create(int $domain, int $type, int $protocol): Socket|false {}
 
+/** @genstubs-expose-comment-block
+ * Initiates a connection on a socket
+ * @param Socket $socket A Socket instance created with socket_create.
+ * @param string $address The address parameter is either an IPv4 address in dotted-quad notation (e.g. 127.0.0.1) if socket is AF_INET, a valid IPv6 address (e.g. ::1) if IPv6 support is enabled and socket is AF_INET6 or the pathname of a Unix domain socket, if the socket family is AF_UNIX.
+ * @param int|null $port The port parameter is only used and is mandatory when connecting to an AF_INET or an AF_INET6 socket, and designates the port on the remote host to which a connection should be made.
+ * @return bool
+ */
 function socket_connect(Socket $socket, string $address, ?int $port = null): bool {}
 
+/** @genstubs-expose-comment-block
+ * Return a string describing a socket error
+ * @param int $error_code A valid socket error number, likely produced by socket_last_error.
+ * @return string
+ */
 function socket_strerror(int $error_code): string {}
 
+/** @genstubs-expose-comment-block
+ * Binds a name to a socket
+ * @param Socket $socket A Socket instance created with socket_create.
+ * @param string $address If the socket is of the AF_INET family, the address is an IP in dotted-quad notation (e.g. 127.0.0.1).
+ * @param int $port The port parameter is only used when binding an AF_INET socket, and designates the port on which to listen for connections.
+ * @return bool
+ */
 function socket_bind(Socket $socket, string $address, int $port = 0): bool {}
 
+/** @genstubs-expose-comment-block
+ * Receives data from a connected socket
+ * @param Socket $socket The socket must be a Socket instance previously created by socket_create.
+ * @param string|null $data The data received will be fetched to the variable specified with data. If an error occurs, if the connection is reset, or if no data is available, data will be set to null.
+ * @param int $length Up to length bytes will be fetched from remote host.
+ * @param int $flags The value of flags can be any combination of the following flags, joined with the binary OR (|) operator.
+ * @return int|false
+ */
 /** @param string|null $data */
 function socket_recv(Socket $socket, &$data, int $length, int $flags): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Sends data to a connected socket
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @param string $data A buffer containing the data that will be sent to the remote host.
+ * @param int $length The number of bytes that will be sent to the remote host from data.
+ * @param int $flags The value of flags can be any combination of the following flags, joined with the binary OR (|) operator. Possible values for flags MSG_OOB Send OOB (out-of-band) data. MSG_EOR Indicate a record mark. The sent data completes the record. MSG_EOF Close the sender side of the socket and include an appropriate notification of this at the end of the sent data. The sent data completes the transaction. MSG_DONTROUTE Bypass routing, use direct interface.
+ * @return int|false
+ */
 function socket_send(Socket $socket, string $data, int $length, int $flags): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Receives data from a socket whether or not it is connection-oriented
+ * @param Socket $socket The socket must be a Socket instance previously created by socket_create().
+ * @param string $data The data received will be fetched to the variable specified with data.
+ * @param int $length Up to length bytes will be fetched from remote host.
+ * @param int $flags The value of flags can be any combination of the following flags, joined with the binary OR (|) operator.
+ * @param string $address If the socket is of the type AF_UNIX type, address is the path to the file. Else, for unconnected sockets, address is the IP address of, the remote host, or null if the socket is connection-oriented.
+ * @param int $port This argument only applies to AF_INET and AF_INET6 sockets, and specifies the remote port from which the data is received. If the socket is connection-oriented, port will be null.
+ * @return int|false
+ */
 /**
  * @param string $data
  * @param string $address
@@ -2263,23 +2382,54 @@ function socket_send(Socket $socket, string $data, int $length, int $flags): int
  */
 function socket_recvfrom(Socket $socket, &$data, int $length, int $flags, &$address, &$port = null): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Sends a message to a socket, whether it is connected or not
+ * @param Socket $socket A Socket instance created using socket_create.
+ * @param string $data The sent data will be taken from buffer data.
+ * @param int $length length bytes from data will be sent.
+ * @param int $flags The value of flags can be any combination of the following flags, joined with the binary OR (|) operator. Possible values for flags MSG_OOB Send OOB (out-of-band) data. MSG_EOR Indicate a record mark. The sent data completes the record. MSG_EOF Close the sender side of the socket and include an appropriate notification of this at the end of the sent data. The sent data completes the transaction. MSG_DONTROUTE Bypass routing, use direct interface.
+ * @param string $address IP address of the remote host.
+ * @param int|null $port port is the remote port number at which the data will be sent.
+ * @return int|false
+ */
 function socket_sendto(Socket $socket, string $data, int $length, int $flags, string $address, ?int $port = null): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Gets socket options for the socket
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @param int $level The level parameter specifies the protocol level at which the option resides. For example, to retrieve options at the socket level, a level parameter of SOL_SOCKET would be used. Other levels, such as TCP, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the getprotobyname function.
+ * @param int $option Reports whether the socket lingers on socket_close if data is present. By default, when the socket is closed, it attempts to send all unsent data. In the case of a connection-oriented socket, socket_close will wait for its peer to acknowledge the data.
+ * @return array|int|false
+ */
 /**
  * @return array<string, mixed>|int|false
  * @refcount 1
  */
 function socket_get_option(Socket $socket, int $level, int $option): array|int|false {}
 
+/** @genstubs-expose-comment-block
+ * Alias socket_get_option
+ */
 /**
  * @return array<string, mixed>|int|false
  * @alias socket_get_option
  */
 function socket_getopt(Socket $socket, int $level, int $option): array|int|false {}
 
+/** @genstubs-expose-comment-block
+ * Sets socket options for the socket
+ * @param Socket $socket A Socket instance created with socket_create or socket_accept.
+ * @param int $level The level parameter specifies the protocol level at which the option resides. For example, to set options at the socket level, a level parameter of SOL_SOCKET would be used. Other levels, such as TCP, can be used by specifying the protocol number of that level. Protocol numbers can be found by using the getprotobyname function.
+ * @param int $option The available socket options are the same as those for the socket_get_option function.
+ * @param array|string|int $value The option value.
+ * @return bool
+ */
 /** @param array|string|int $value */
 function socket_set_option(Socket $socket, int $level, int $option, $value): bool {}
 
+/** @genstubs-expose-comment-block
+ * Alias socket_set_option
+ */
 /**
  * @param array|string|int $value
  * @alias socket_set_option
@@ -2287,34 +2437,88 @@ function socket_set_option(Socket $socket, int $level, int $option, $value): boo
 function socket_setopt(Socket $socket, int $level, int $option, $value): bool {}
 
 #ifdef HAVE_SOCKETPAIR
+/** @genstubs-expose-comment-block
+ * Creates a pair of indistinguishable sockets and stores them in an array
+ * @param int $domain The domain parameter specifies the protocol family to be used by the socket. See socket_create for the full list.
+ * @param int $type The type parameter selects the type of communication to be used by the socket. See socket_create for the full list.
+ * @param int $protocol The protocol parameter sets the specific protocol within the specified domain to be used when communicating on the returned socket. The proper value can be retrieved by name by using getprotobyname. If the desired protocol is TCP, or UDP the corresponding constants SOL_TCP, and SOL_UDP can also be used.
+ * @param array $pair Reference to an array in which the two Socket instances will be inserted.
+ * @return bool
+ */
 /** @param array $pair */
 function socket_create_pair(int $domain, int $type, int $protocol, &$pair): bool {}
 #endif
 
 #ifdef HAVE_SHUTDOWN
+/** @genstubs-expose-comment-block
+ * Shuts down a socket for receiving, sending, or both
+ * @param Socket $socket A Socket instance created with socket_create.
+ * @param int $mode The value of mode can be one of the following: possible values for mode 0 Shutdown socket reading 1 Shutdown socket writing 2 Shutdown socket reading and writing
+ * @return bool
+ */
 function socket_shutdown(Socket $socket, int $mode = 2): bool {}
 #endif
 
 #ifdef HAVE_SOCKATMARK
+/** @genstubs-expose-comment-block
+ * Determines whether socket is at out-of-band mark
+ * @param Socket $socket A Socket instance created with socket_create.
+ * @return bool
+ */
 function socket_atmark(Socket $socket): bool {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Returns the last error on the socket
+ * @param Socket|null $socket A Socket instance created with socket_create.
+ * @return int
+ */
 function socket_last_error(?Socket $socket = null): int {}
 
+/** @genstubs-expose-comment-block
+ * Clears the error on the socket or the last error code
+ * @param Socket|null $socket A Socket instance created with socket_create.
+ * @return void
+ */
 function socket_clear_error(?Socket $socket = null): void {}
 
+/** @genstubs-expose-comment-block
+ * Import a stream
+ * @param resource $stream The stream resource to import.
+ * @return Socket|false
+ */
 /** @param resource $stream */
 function socket_import_stream($stream): Socket|false {}
 
+/** @genstubs-expose-comment-block
+ * Export a socket into a stream that encapsulates a socket
+ * @return resource|false
+ */
 /** @return resource|false */
 function socket_export_stream(Socket $socket) {}
 
+/** @genstubs-expose-comment-block
+ * Send a message
+ * @return int|false
+ */
 function socket_sendmsg(Socket $socket, array $message, int $flags = 0): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Read a message
+ * @return int|false
+ */
 function socket_recvmsg(Socket $socket, array &$message, int $flags = 0): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Calculate message buffer size
+ * @return int|null
+ */
 function socket_cmsg_space(int $level, int $type, int $num = 0): ?int {}
 
+/** @genstubs-expose-comment-block
+ * Get array with contents of getaddrinfo about the given hostname
+ * @return array|false
+ */
 /**
  * @return array<int, AddressInfo>|false
  * @param int $error_code
@@ -2322,10 +2526,22 @@ function socket_cmsg_space(int $level, int $type, int $num = 0): ?int {}
  */
 function socket_addrinfo_lookup(string $host, ?string $service = null, array $hints = [], &$error_code = null): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Create and connect to a socket from a given addrinfo
+ * @return Socket|false
+ */
 function socket_addrinfo_connect(AddressInfo $address): Socket|false {}
 
+/** @genstubs-expose-comment-block
+ * Create and bind to a socket from a given addrinfo
+ * @return Socket|false
+ */
 function socket_addrinfo_bind(AddressInfo $address): Socket|false {}
 
+/** @genstubs-expose-comment-block
+ * Get information about addrinfo
+ * @return array
+ */
 /**
  * @return array<string, int|string|array>
  * @refcount 1
@@ -2333,9 +2549,21 @@ function socket_addrinfo_bind(AddressInfo $address): Socket|false {}
 function socket_addrinfo_explain(AddressInfo $address): array {}
 
 #ifdef PHP_WIN32
+/** @genstubs-expose-comment-block
+ * Exports the WSAPROTOCOL_INFO Structure
+ * @return string|false
+ */
 function socket_wsaprotocol_info_export(Socket $socket, int $process_id): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Imports a Socket from another Process
+ * @return Socket|false
+ */
 function socket_wsaprotocol_info_import(string $info_id): Socket|false {}
 
+/** @genstubs-expose-comment-block
+ * Releases an exported WSAPROTOCOL_INFO Structure
+ * @return bool
+ */
 function socket_wsaprotocol_info_release(string $info_id): bool {}
 #endif

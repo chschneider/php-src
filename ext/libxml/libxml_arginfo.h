@@ -1,12 +1,12 @@
 /* This is a generated file, edit libxml.stub.php instead.
- * Stub hash: 6dceb619736a3de55b84609a9e3aeb13405bbfde */
+ * Stub hash: 6c366345ddeef004e3e1b8dbb757851f8503c2c8 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_libxml_set_streams_context, 0, 1, IS_VOID, 0)
 	ZEND_ARG_INFO(0, context)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_libxml_use_internal_errors, 0, 0, _IS_BOOL, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, use_errors, _IS_BOOL, 1, "null")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, use_errors, _IS_BOOL, 1, "null", "Enable (true) user error handling or disable (false) user error handling. Disabling will also clear any existing libxml errors.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_libxml_get_last_error, 0, 0, LibXMLError, MAY_BE_FALSE)
@@ -39,14 +39,14 @@ ZEND_FUNCTION(libxml_set_external_entity_loader);
 ZEND_FUNCTION(libxml_get_external_entity_loader);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(libxml_set_streams_context, arginfo_libxml_set_streams_context)
-	ZEND_FE(libxml_use_internal_errors, arginfo_libxml_use_internal_errors)
-	ZEND_FE(libxml_get_last_error, arginfo_libxml_get_last_error)
-	ZEND_FE(libxml_get_errors, arginfo_libxml_get_errors)
-	ZEND_FE(libxml_clear_errors, arginfo_libxml_clear_errors)
+	ZEND_RAW_FENTRY("libxml_set_streams_context", zif_libxml_set_streams_context, arginfo_libxml_set_streams_context, 0, NULL, "/**\n * Set the streams context for the next libxml document load or write\n * @param resource $context The stream context resource (created with stream_context_create)\n * @return void\n */")
+	ZEND_RAW_FENTRY("libxml_use_internal_errors", zif_libxml_use_internal_errors, arginfo_libxml_use_internal_errors, 0, NULL, "/**\n * Disable libxml errors and allow user to fetch error information as needed\n * @param bool|null $use_errors Enable (true) user error handling or disable (false) user error handling. Disabling will also clear any existing libxml errors.\n * @return bool\n */")
+	ZEND_RAW_FENTRY("libxml_get_last_error", zif_libxml_get_last_error, arginfo_libxml_get_last_error, 0, NULL, "/**\n * Retrieve last error from libxml\n * @return LibXMLError|false\n */")
+	ZEND_RAW_FENTRY("libxml_get_errors", zif_libxml_get_errors, arginfo_libxml_get_errors, 0, NULL, "/**\n * Retrieve array of errors\n * @return array\n */")
+	ZEND_RAW_FENTRY("libxml_clear_errors", zif_libxml_clear_errors, arginfo_libxml_clear_errors, 0, NULL, "/**\n * Clear libxml error buffer\n * @return void\n */")
 	ZEND_RAW_FENTRY("libxml_disable_entity_loader", zif_libxml_disable_entity_loader, arginfo_libxml_disable_entity_loader, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(libxml_set_external_entity_loader, arginfo_libxml_set_external_entity_loader)
-	ZEND_FE(libxml_get_external_entity_loader, arginfo_libxml_get_external_entity_loader)
+	ZEND_RAW_FENTRY("libxml_set_external_entity_loader", zif_libxml_set_external_entity_loader, arginfo_libxml_set_external_entity_loader, 0, NULL, "/**\n * Changes the default external entity loader\n * @return bool\n */")
+	ZEND_RAW_FENTRY("libxml_get_external_entity_loader", zif_libxml_get_external_entity_loader, arginfo_libxml_get_external_entity_loader, 0, NULL, "/**\n * Get the current external entity loader\n * @return callable|null\n */")
 	ZEND_FE_END
 };
 

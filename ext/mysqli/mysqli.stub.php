@@ -1348,6 +1348,9 @@ function mysqli_close(mysqli $mysql): true {}
 
 function mysqli_commit(mysqli $mysql, int $flags = 0, ?string $name = null): bool {}
 
+/** @genstubs-expose-comment-block
+ * Alias mysqli::__construct
+ */
 /**
  * @refcount 1
  */
@@ -1386,6 +1389,9 @@ function mysqli_stmt_execute(mysqli_stmt $statement, ?array $params = null): boo
 
 /** @alias mysqli_stmt_execute */
 #[\Deprecated(since: '8.5', message: "use mysqli_stmt_execute() instead")]
+/** @genstubs-expose-comment-block
+ * Alias mysqli_stmt_execute
+ */
 function mysqli_execute(mysqli_stmt $statement, ?array $params = null): bool {}
 
 function mysqli_execute_query(mysqli $mysql, string $query, ?array $params = null): mysqli_result|bool {}
@@ -1451,6 +1457,10 @@ function mysqli_free_result(mysqli_result $result): void {}
  */
 function mysqli_get_connection_stats(mysqli $mysql): array {}
 
+/** @genstubs-expose-comment-block
+ * Returns client per-process statistics
+ * @return array
+ */
 /**
  * @return array<string, string>
  * @refcount 1
@@ -1465,6 +1475,10 @@ function mysqli_get_client_info(?mysqli $mysql = null): string {}
 
 function mysqli_get_client_version(): int {}
 
+/** @genstubs-expose-comment-block
+ * Return information about open and cached links
+ * @return array
+ */
 /**
  * @return array<string, int>
  * @refcount 1
@@ -1524,6 +1538,9 @@ function mysqli_poll(?array &$read, ?array &$error, array &$reject, int $seconds
 /** @refcount 1 */
 function mysqli_prepare(mysqli $mysql, string $query): mysqli_stmt|false {}
 
+/** @genstubs-expose-comment-block
+ * Alias mysqli_driver->report_mode
+ */
 function mysqli_report(int $flags): true {}
 
 /** @refcount 1 */

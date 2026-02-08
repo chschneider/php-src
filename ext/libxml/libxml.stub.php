@@ -167,21 +167,56 @@ class LibXMLError
     public int $line;
 }
 
+/** @genstubs-expose-comment-block
+ * Set the streams context for the next libxml document load or write
+ * @param resource $context The stream context resource (created with stream_context_create)
+ * @return void
+ */
 /** @param resource $context */
 function libxml_set_streams_context($context): void {}
 
+/** @genstubs-expose-comment-block
+ * Disable libxml errors and allow user to fetch error information as needed
+ * @param bool|null $use_errors Enable (true) user error handling or disable (false) user error handling. Disabling will also clear any existing libxml errors.
+ * @return bool
+ */
 function libxml_use_internal_errors(?bool $use_errors = null): bool {}
 
+/** @genstubs-expose-comment-block
+ * Retrieve last error from libxml
+ * @return LibXMLError|false
+ */
 function libxml_get_last_error(): LibXMLError|false {}
 
+/** @genstubs-expose-comment-block
+ * Retrieve array of errors
+ * @return array
+ */
 /** @return array<int, LibXMLError> */
 function libxml_get_errors(): array {}
 
+/** @genstubs-expose-comment-block
+ * Clear libxml error buffer
+ * @return void
+ */
 function libxml_clear_errors(): void {}
 
 #[\Deprecated(since: '8.0', message: 'as external entity loading is disabled by default')]
+/** @genstubs-expose-comment-block
+ * Disable the ability to load external entities
+ * @param bool $disable Disable (true) or enable (false) libxml extensions (such as , and ) to load external entities.
+ * @return bool
+ */
 function libxml_disable_entity_loader(bool $disable = true): bool {}
 
+/** @genstubs-expose-comment-block
+ * Changes the default external entity loader
+ * @return bool
+ */
 function libxml_set_external_entity_loader(?callable $resolver_function): true {}
 
+/** @genstubs-expose-comment-block
+ * Get the current external entity loader
+ * @return callable|null
+ */
 function libxml_get_external_entity_loader(): ?callable {}

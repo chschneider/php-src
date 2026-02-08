@@ -311,33 +311,87 @@ const POSIX_PC_SYMLINK_MAX = UNKNOWN;
 const POSIX_SC_OPEN_MAX = UNKNOWN;
 #endif
 
+/** @genstubs-expose-comment-block
+ * Send a signal to a process
+ * @param int $process_id The process identifier.
+ * @param int $signal One of the PCNTL signals constants.
+ * @return bool
+ */
 function posix_kill(int $process_id, int $signal): bool {}
 
+/** @genstubs-expose-comment-block
+ * Return the current process identifier
+ * @return int
+ */
 function posix_getpid(): int {}
 
+/** @genstubs-expose-comment-block
+ * Return the parent process identifier
+ * @return int
+ */
 function posix_getppid(): int {}
 
+/** @genstubs-expose-comment-block
+ * Return the real user ID of the current process
+ * @return int
+ */
 function posix_getuid(): int {}
 
+/** @genstubs-expose-comment-block
+ * Set the UID of the current process
+ * @param int $user_id The user id.
+ * @return bool
+ */
 function posix_setuid(int $user_id): bool {}
 
+/** @genstubs-expose-comment-block
+ * Return the effective user ID of the current process
+ * @return int
+ */
 function posix_geteuid(): int {}
 
 #ifdef HAVE_SETEUID
+/** @genstubs-expose-comment-block
+ * Set the effective UID of the current process
+ * @param int $user_id The user id.
+ * @return bool
+ */
 function posix_seteuid(int $user_id): bool {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Return the real group ID of the current process
+ * @return int
+ */
 function posix_getgid(): int {}
 
+/** @genstubs-expose-comment-block
+ * Set the GID of the current process
+ * @param int $group_id The group id.
+ * @return bool
+ */
 function posix_setgid(int $group_id): bool {}
 
+/** @genstubs-expose-comment-block
+ * Return the effective group ID of the current process
+ * @return int
+ */
 function posix_getegid(): int {}
 
 #ifdef HAVE_SETEGID
+/** @genstubs-expose-comment-block
+ * Set the effective GID of the current process
+ * @param int $group_id The group id.
+ * @return bool
+ */
 function posix_setegid(int $group_id): bool {}
 #endif
 
 #ifdef HAVE_GETGROUPS
+/** @genstubs-expose-comment-block
+ * Return the group set of the current process
+ * @return array|false
+ */
 /**
  * @return array<int, int>|false
  * @refcount 1
@@ -346,31 +400,67 @@ function posix_getgroups(): array|false {}
 #endif
 
 #ifdef HAVE_GETLOGIN
+/** @genstubs-expose-comment-block
+ * Return login name
+ * @return string|false
+ */
 function posix_getlogin(): string|false {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Return the current process group identifier
+ * @return int
+ */
 function posix_getpgrp(): int {}
 
 #ifdef HAVE_SETSID
+/** @genstubs-expose-comment-block
+ * Make the current process a session leader
+ * @return int
+ */
 function posix_setsid(): int {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Set process group id for job control
+ * @param int $process_id The process id.
+ * @param int $process_group_id The process group id.
+ * @return bool
+ */
 function posix_setpgid(int $process_id, int $process_group_id): bool {}
 
 #ifdef HAVE_GETPGID
+/** @genstubs-expose-comment-block
+ * Get process group id for job control
+ * @param int $process_id The process id.
+ * @return int|false
+ */
 function posix_getpgid(int $process_id): int|false {}
 #endif
 
 #ifdef HAVE_GETSID
+/** @genstubs-expose-comment-block
+ * Get the current sid of the process
+ * @param int $process_id The process identifier. If set to 0, the current process is assumed.  If an invalid process_id is specified, then false is returned and an error is set which can be checked with posix_get_last_error.
+ * @return int|false
+ */
 function posix_getsid(int $process_id): int|false {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Get system name
+ * @return array|false
+ */
 /**
  * @return array<string, string>|false
  * @refcount 1
  */
 function posix_uname(): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Get process times
+ * @return array|false
+ */
 /**
  * @return array<string, int>|false
  * @refcount 1
@@ -379,49 +469,113 @@ function posix_times(): array|false {}
 
 
 #ifdef HAVE_CTERMID
+/** @genstubs-expose-comment-block
+ * Get path name of controlling terminal
+ * @return string|false
+ */
 function posix_ctermid(): string|false {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Determine terminal device name
+ * @param resource|int $file_descriptor The file descriptor, which is expected to be either a file resource or an int. An int will be assumed to be a file descriptor that can be passed directly to the underlying system call.
+ * @return string|false
+ */
 /** @param resource|int $file_descriptor */
 function posix_ttyname($file_descriptor): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Determine if a file descriptor is an interactive terminal
+ * @param resource|int $file_descriptor The file descriptor, which is expected to be either a file resource or an int. An int will be assumed to be a file descriptor that can be passed directly to the underlying system call.
+ * @return bool
+ */
 /** @param resource|int $file_descriptor */
 function posix_isatty($file_descriptor): bool {}
 
+/** @genstubs-expose-comment-block
+ * Pathname of current directory
+ * @return string|false
+ */
 function posix_getcwd(): string|false {}
 
 #ifdef HAVE_MKFIFO
+/** @genstubs-expose-comment-block
+ * Create a fifo special file (a named pipe)
+ * @param string $filename Path to the FIFO file.
+ * @param int $permissions The second parameter permissions has to be given in octal notation (e.g. 0644). The permission of the newly created FIFO also depends on the setting of the current umask. The permissions of the created file are (mode & ~umask).
+ * @return bool
+ */
 function posix_mkfifo(string $filename, int $permissions): bool {}
 #endif
 
 #ifdef HAVE_MKNOD
+/** @genstubs-expose-comment-block
+ * Create a special or ordinary file (POSIX.1)
+ * @param string $filename The file to create
+ * @param int $flags This parameter is constructed by a bitwise OR between file type (one of the following constants: POSIX_S_IFREG, POSIX_S_IFCHR, POSIX_S_IFBLK, POSIX_S_IFIFO or POSIX_S_IFSOCK) and permissions.
+ * @param int $major The major device kernel identifier (required to pass when using S_IFCHR or S_IFBLK).
+ * @param int $minor The minor device kernel identifier.
+ * @return bool
+ */
 function posix_mknod(string $filename, int $flags, int $major = 0, int $minor = 0): bool {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Determine accessibility of a file
+ * @param string $filename The name of the file to be tested.
+ * @param int $flags A mask consisting of one or more of POSIX_F_OK, POSIX_R_OK, POSIX_W_OK and POSIX_X_OK.
+ * @return bool
+ */
 function posix_access(string $filename, int $flags = 0): bool {}
 
 #ifdef HAVE_EACCESS
+/** @genstubs-expose-comment-block
+ * Determine accessibility of a file
+ * @param string $filename The name of a file to be tested.
+ * @param int $flags A mask consisting of one or more of POSIX_F_OK, POSIX_R_OK, POSIX_W_OK and POSIX_X_OK.
+ * @return bool
+ */
 function posix_eaccess(string $filename, int $flags = 0): bool {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Return info about a group by name
+ * @param string $name The name of the group
+ * @return array|false
+ */
 /**
  * @return array<string, int|string|array|null>|false
  * @refcount 1
  */
 function posix_getgrnam(string $name): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Return info about a group by group id
+ * @param int $group_id The group id.
+ * @return array|false
+ */
 /**
  * @return array<string, int|string|array|null>|false
  * @refcount 1
  */
 function posix_getgrgid(int $group_id): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Return info about a user by username
+ * @param string $username An alphanumeric username.
+ * @return array|false
+ */
 /**
  * @return array<string, int|string>|false
  * @refcount 1
  */
 function posix_getpwnam(string $username): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Return info about a user by user id
+ * @param int $user_id The user identifier.
+ * @return array|false
+ */
 /**
  * @return array<string, int|string>|false
  * @refcount 1
@@ -429,6 +583,11 @@ function posix_getpwnam(string $username): array|false {}
 function posix_getpwuid(int $user_id): array|false {}
 
 #ifdef HAVE_GETRLIMIT
+/** @genstubs-expose-comment-block
+ * Return info about system resource limits
+ * @param int|null $resource If null, all current resource limits will be returned. Otherwise, specify the resource limit constant to retrieve a specific limit.
+ * @return array|false
+ */
 /**
  * @return array<int|string, int|string>|false
  * @refcount 1
@@ -437,27 +596,69 @@ function posix_getrlimit(?int $resource = null): array|false {}
 #endif
 
 #ifdef HAVE_SETRLIMIT
+/** @genstubs-expose-comment-block
+ * Set system resource limits
+ * @param int $resource The resource limit constant corresponding to the limit that is being set.
+ * @param int $soft_limit The soft limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
+ * @param int $hard_limit The hard limit, in whatever unit the resource limit requires, or POSIX_RLIMIT_INFINITY.
+ * @return bool
+ */
 function posix_setrlimit(int $resource, int $soft_limit, int $hard_limit): bool {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Retrieve the error number set by the last posix function that failed
+ * @return int
+ */
 function posix_get_last_error(): int {}
 
+/** @genstubs-expose-comment-block
+ * Alias posix_get_last_error
+ */
 /** @alias posix_get_last_error */
 function posix_errno(): int {}
 
+/** @genstubs-expose-comment-block
+ * Retrieve the system error message associated with the given errno
+ * @param int $error_code A POSIX error number, returned by posix_get_last_error. If set to 0, then the string "Success" is returned.
+ * @return string
+ */
 function posix_strerror(int $error_code): string {}
 
 #ifdef HAVE_INITGROUPS
+/** @genstubs-expose-comment-block
+ * Calculate the group access list
+ * @param string $username The user to calculate the list for.
+ * @param int $group_id Typically the group number from the password file.
+ * @return bool
+ */
 function posix_initgroups(string $username, int $group_id): bool {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Returns system runtime information
+ * @param int $conf_id Identifier of the variable with the following constants POSIX_SC_ARG_MAX, POSIX_SC_PAGESIZE, POSIX_SC_NPROCESSORS_CONF, POSIX_SC_NPROCESSORS_ONLN, POSIX_SC_CHILD_MAX, POSIX_SC_CLK_TCK
+ * @return int
+ */
 function posix_sysconf(int $conf_id): int {}
 
 #ifdef HAVE_PATHCONF
+/** @genstubs-expose-comment-block
+ * Returns the value of a configurable limit
+ * @param string $path The name of the file whose limit you want to get.
+ * @param int $name The name of the configurable limit, one of the following. POSIX_PC_LINK_MAX, POSIX_PC_MAX_CANON, POSIX_PC_MAX_INPUT, POSIX_PC_NAME_MAX, POSIX_PC_PATH_MAX, POSIX_PC_PIPE_BUF, POSIX_PC_CHOWN_RESTRICTED, POSIX_PC_NO_TRUNC, POSIX_PC_ALLOC_SIZE_MIN, POSIX_PC_SYMLINK_MAX.
+ * @return int|false
+ */
 function posix_pathconf(string $path, int $name): int|false {}
 #endif
 
 #ifdef HAVE_FPATHCONF
+/** @genstubs-expose-comment-block
+ * Returns the value of a configurable limit
+ * @param resource|int $file_descriptor The file descriptor, which is expected to be either a file resource or an int. An int will be assumed to be a file descriptor that can be passed directly to the underlying system call.
+ * @param int $name The name of the configurable limit, one of the following. POSIX_PC_LINK_MAX, POSIX_PC_MAX_CANON, POSIX_PC_MAX_INPUT, POSIX_PC_NAME_MAX, POSIX_PC_PATH_MAX, POSIX_PC_PIPE_BUF, POSIX_PC_CHOWN_RESTRICTED, POSIX_PC_NO_TRUNC, POSIX_PC_ALLOC_SIZE_MIN, POSIX_PC_SYMLINK_MAX.
+ * @return int|false
+ */
 /** @param resource|int $file_descriptor */
 function posix_fpathconf($file_descriptor, int $name): int|false {}
 #endif

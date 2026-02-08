@@ -1,13 +1,13 @@
 /* This is a generated file, edit tokenizer.stub.php instead.
- * Stub hash: a89f03303f8a7d254509ae2bc46a36bb79a3c900 */
+ * Stub hash: ef47136a424911e824f6de98c222e1c0edcdf8e6 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_token_get_all, 0, 1, IS_ARRAY, 0)
-	ZEND_ARG_TYPE_INFO(0, code, IS_STRING, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, flags, IS_LONG, 0, "0")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, code, IS_STRING, 0, "The PHP source to parse.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, flags, IS_LONG, 0, "0", "Valid flags: TOKEN_PARSE - Recognises the ability to use reserved words in specific contexts.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_token_name, 0, 1, IS_STRING, 0)
-	ZEND_ARG_TYPE_INFO(0, id, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, id, IS_LONG, 0, "The token value.")
 ZEND_END_ARG_INFO()
 
 #define arginfo_class_PhpToken_tokenize arginfo_token_get_all
@@ -42,8 +42,8 @@ ZEND_METHOD(PhpToken, getTokenName);
 ZEND_METHOD(PhpToken, __toString);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(token_get_all, arginfo_token_get_all)
-	ZEND_FE(token_name, arginfo_token_name)
+	ZEND_RAW_FENTRY("token_get_all", zif_token_get_all, arginfo_token_get_all, 0, NULL, "/**\n * Split given source into PHP tokens\n * @param string $code The PHP source to parse.\n * @param int $flags Valid flags: TOKEN_PARSE - Recognises the ability to use reserved words in specific contexts.\n * @return array\n */")
+	ZEND_RAW_FENTRY("token_name", zif_token_name, arginfo_token_name, 0, NULL, "/**\n * Get the symbolic name of a given PHP token\n * @param int $id The token value.\n * @return string\n */")
 	ZEND_FE_END
 };
 

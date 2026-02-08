@@ -110,64 +110,147 @@ const SNMP_INTEGER = UNKNOWN;
  */
 const SNMP_COUNTER64 = UNKNOWN;
 
+/** @genstubs-expose-comment-block
+ * Fetch an SNMP object
+ * @return mixed
+ */
 function snmpget(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): mixed {}
 
+/** @genstubs-expose-comment-block
+ * Fetch the SNMP object which follows the given object id
+ * @return mixed
+ */
 function snmpgetnext(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): mixed {}
 
+/** @genstubs-expose-comment-block
+ * Fetch all the SNMP objects from an agent
+ * @return array|false
+ */
 function snmpwalk(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Return all objects including their respective object ID within the specified one
+ * @return array|false
+ */
 function snmprealwalk(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Query for a tree of information about a network entity
+ * @return array|false
+ */
 /** @alias snmprealwalk */
 function snmpwalkoid(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Set the value of an SNMP object
+ * @return bool
+ */
 function snmpset(string $hostname, string $community, array|string $object_id, array|string $type, array|string $value, int $timeout = -1, int $retries = -1): bool {}
 
+/** @genstubs-expose-comment-block
+ * Fetches the current value of the NET-SNMP library's quick_print setting
+ * @return bool
+ */
 function snmp_get_quick_print(): bool {}
 
+/** @genstubs-expose-comment-block
+ * Set the value of enable within the NET-SNMP library
+ * @return true
+ */
 function snmp_set_quick_print(bool $enable): true {}
 
+/** @genstubs-expose-comment-block
+ * Return all values that are enums with their enum value instead of the raw integer
+ * @return true
+ */
 function snmp_set_enum_print(bool $enable): true {}
 
+/** @genstubs-expose-comment-block
+ * Set the OID output format
+ * @return true
+ */
 function snmp_set_oid_output_format(int $format): true {}
 
+/** @genstubs-expose-comment-block
+ * Alias snmp_set_oid_output_format
+ */
 /** @alias snmp_set_oid_output_format */
 function snmp_set_oid_numeric_print(int $format): true {}
 
+/** @genstubs-expose-comment-block
+ * Fetch an SNMP object
+ * @return mixed
+ */
 function snmp2_get(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): mixed {}
 
+/** @genstubs-expose-comment-block
+ * Fetch the SNMP object which follows the given object id
+ * @return mixed
+ */
 function snmp2_getnext(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): mixed {}
 
+/** @genstubs-expose-comment-block
+ * Fetch all the SNMP objects from an agent
+ * @return array|false
+ */
 function snmp2_walk(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Return all objects including their respective object ID within the specified one
+ * @return array|false
+ */
 function snmp2_real_walk(string $hostname, string $community, array|string $object_id, int $timeout = -1, int $retries = -1): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Set the value of an SNMP object
+ * @return bool
+ */
 function snmp2_set(string $hostname, string $community, array|string $object_id, array|string $type, array|string $value, int $timeout = -1, int $retries = -1): bool {}
 
+/** @genstubs-expose-comment-block
+ * Fetch an SNMP object
+ * @return mixed
+ */
 function snmp3_get(
     string $hostname, string $security_name, string $security_level,
     string $auth_protocol, string $auth_passphrase,
     string $privacy_protocol, string $privacy_passphrase,
     array|string $object_id, int $timeout = -1, int $retries = -1): mixed {}
 
+/** @genstubs-expose-comment-block
+ * Fetch the SNMP object which follows the given object id
+ * @return mixed
+ */
 function snmp3_getnext(
     string $hostname, string $security_name, string $security_level,
     string $auth_protocol, string $auth_passphrase,
     string $privacy_protocol, string $privacy_passphrase,
     array|string $object_id, int $timeout = -1, int $retries = -1): mixed {}
 
+/** @genstubs-expose-comment-block
+ * Fetch all the SNMP objects from an agent
+ * @return array|false
+ */
 function snmp3_walk(
     string $hostname, string $security_name, string $security_level,
     string $auth_protocol, string $auth_passphrase,
     string $privacy_protocol, string $privacy_passphrase,
     array|string $object_id, int $timeout = -1, int $retries = -1): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Return all objects including their respective object ID within the specified one
+ * @return array|false
+ */
 function snmp3_real_walk(
     string $hostname, string $security_name, string $security_level,
     string $auth_protocol, string $auth_passphrase,
     string $privacy_protocol, string $privacy_passphrase,
     array|string $object_id, int $timeout = -1, int $retries = -1): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Set the value of an SNMP object
+ * @return bool
+ */
 function snmp3_set(
     string $hostname, string $security_name, string $security_level,
     string $auth_protocol, string $auth_passphrase,
@@ -175,10 +258,22 @@ function snmp3_set(
     array|string $object_id, array|string $type, array|string $value,
     int $timeout = -1, int $retries = -1): bool {}
 
+/** @genstubs-expose-comment-block
+ * Specify the method how the SNMP values will be returned
+ * @return true
+ */
 function snmp_set_valueretrieval(int $method): true {}
 
+/** @genstubs-expose-comment-block
+ * Return the method how the SNMP values will be returned
+ * @return int
+ */
 function snmp_get_valueretrieval(): int {}
 
+/** @genstubs-expose-comment-block
+ * Reads and parses a MIB file into the active MIB tree
+ * @return bool
+ */
 function snmp_read_mib(string $filename): bool {}
 
 class SNMP
