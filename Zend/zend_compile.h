@@ -508,6 +508,7 @@ typedef struct _zend_internal_arg_info {
 	const char *name;
 	zend_type type;
 	const char *default_value;
+	const char *doc_comment;
 } zend_internal_arg_info;
 
 /* arg_info for user functions */
@@ -527,6 +528,7 @@ typedef struct _zend_internal_function_info {
 	uintptr_t required_num_args;
 	zend_type type;
 	const char *default_value;
+	const char *doc_comment;
 } zend_internal_function_info;
 
 struct _zend_op_array {

@@ -2993,11 +2993,16 @@ ZEND_API void zend_convert_internal_arg_info(zend_arg_info *new_arg_info, const 
 		} else {
 			new_arg_info->default_value = NULL;
 		}
+		if (arg_info->doc_comment) {
+			new_arg_info->doc_comment = zend_string_init_interned(arg_info->doc_comment, strlen(arg_info->doc_comment), persistent);
+		} else {
+			new_arg_info->doc_comment = NULL;
+		}
 	} else {
 		new_arg_info->name = NULL;
 		new_arg_info->default_value = NULL;
+		new_arg_info->doc_comment = NULL;
 	}
-	new_arg_info->doc_comment = NULL;
 	new_arg_info->type = arg_info->type;
 	zend_convert_internal_arg_info_type(&new_arg_info->type, persistent);
 }
