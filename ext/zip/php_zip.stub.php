@@ -6,12 +6,22 @@
  * @return resource|int|false
  */
 #[\Deprecated(since: '8.0', message: 'use ZipArchive::open() instead')]
+/** @genstubs-expose-comment-block
+ * Open a ZIP file archive
+ * @param string $filename The file name of the ZIP archive to open.
+ * @return resource|int|false
+ */
 function zip_open(string $filename) {}
 
 /**
  * @param resource $zip
  */
 #[\Deprecated(since: '8.0', message: 'use ZipArchive::close() instead')]
+/** @genstubs-expose-comment-block
+ * Close a ZIP file archive
+ * @param resource $zip A ZIP file previously opened with zip_open.
+ * @return void
+ */
 function zip_close($zip): void {}
 
 /**
@@ -19,6 +29,11 @@ function zip_close($zip): void {}
  * @return resource|false
  */
 #[\Deprecated(since: '8.0', message: 'use ZipArchive::statIndex() instead')]
+/** @genstubs-expose-comment-block
+ * Read next entry in a ZIP file archive
+ * @param resource $zip A ZIP file previously opened with zip_open.
+ * @return resource|false
+ */
 function zip_read($zip) {}
 
 /**
@@ -26,42 +41,80 @@ function zip_read($zip) {}
  * @param resource $zip_entry
  */
 #[\Deprecated(since: '8.0')]
+/** @genstubs-expose-comment-block
+ * Open a directory entry for reading
+ * @param resource $zip_dp A valid resource handle returned by zip_open.
+ * @param resource $zip_entry A directory entry returned by zip_read.
+ * @param string $mode Any of the modes specified in the documentation of fopen.
+ * @return bool
+ */
 function zip_entry_open($zip_dp, $zip_entry, string $mode = "rb"): bool {}
 
 /**
  * @param resource $zip_entry
  */
 #[\Deprecated(since: '8.0')]
+/** @genstubs-expose-comment-block
+ * Close a directory entry
+ * @param resource $zip_entry A directory entry previously opened zip_entry_open.
+ * @return bool
+ */
 function zip_entry_close($zip_entry): bool {}
 
 /**
  * @param resource $zip_entry
  */
 #[\Deprecated(since: '8.0', message: 'use ZipArchive::getFromIndex() instead')]
+/** @genstubs-expose-comment-block
+ * Read from an open directory entry
+ * @param resource $zip_entry A directory entry returned by zip_read.
+ * @param int $len The number of bytes to return.
+ * @return string|false
+ */
 function zip_entry_read($zip_entry, int $len = 1024): string|false {}
 
 /**
  * @param resource $zip_entry
  */
 #[\Deprecated(since: '8.0', message: 'use ZipArchive::statIndex() instead')]
+/** @genstubs-expose-comment-block
+ * Retrieve the name of a directory entry
+ * @param resource $zip_entry A directory entry returned by zip_read.
+ * @return string|false
+ */
 function zip_entry_name($zip_entry): string|false {}
 
 /**
  * @param resource $zip_entry
  */
 #[\Deprecated(since: '8.0', message: 'use ZipArchive::statIndex() instead')]
+/** @genstubs-expose-comment-block
+ * Retrieve the compressed size of a directory entry
+ * @param resource $zip_entry A directory entry returned by zip_read.
+ * @return int|false
+ */
 function zip_entry_compressedsize($zip_entry): int|false {}
 
 /**
  * @param resource $zip_entry
  */
 #[\Deprecated(since: '8.0', message: 'use ZipArchive::statIndex() instead')]
+/** @genstubs-expose-comment-block
+ * Retrieve the actual file size of a directory entry
+ * @param resource $zip_entry A directory entry returned by zip_read.
+ * @return int|false
+ */
 function zip_entry_filesize($zip_entry): int|false {}
 
 /**
  * @param resource $zip_entry
  */
 #[\Deprecated(since: '8.0', message: 'use ZipArchive::statIndex() instead')]
+/** @genstubs-expose-comment-block
+ * Retrieve the compression method of a directory entry
+ * @param resource $zip_entry A directory entry returned by zip_read.
+ * @return string|false
+ */
 function zip_entry_compressionmethod($zip_entry): string|false {}
 
 class ZipArchive implements Countable

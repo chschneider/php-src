@@ -8,8 +8,19 @@
  */
 const TOKEN_PARSE = UNKNOWN;
 
+/** @genstubs-expose-comment-block
+ * Split given source into PHP tokens
+ * @param string $code The PHP source to parse.
+ * @param int $flags Valid flags: TOKEN_PARSE - Recognises the ability to use reserved words in specific contexts.
+ * @return array
+ */
 function token_get_all(string $code, int $flags = 0): array {}
 
+/** @genstubs-expose-comment-block
+ * Get the symbolic name of a given PHP token
+ * @param int $id The token value.
+ * @return string
+ */
 function token_name(int $id): string {}
 
 class PhpToken implements Stringable

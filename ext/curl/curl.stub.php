@@ -3741,51 +3741,136 @@ final class CurlSharePersistentHandle
 }
 
 #[\Deprecated(since: '8.5', message: "as it has no effect since PHP 8.0")]
+/** @genstubs-expose-comment-block
+ * Close a cURL session
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return void
+ */
 function curl_close(CurlHandle $handle): void {}
 
+/** @genstubs-expose-comment-block
+ * Copy a cURL handle along with all of its preferences
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return CurlHandle|false
+ */
 /** @refcount 1 */
 function curl_copy_handle(CurlHandle $handle): CurlHandle|false {}
 
+/** @genstubs-expose-comment-block
+ * Return the last error number
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return int
+ */
 function curl_errno(CurlHandle $handle): int {}
 
+/** @genstubs-expose-comment-block
+ * Return a string containing the last error for the current session
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return string
+ */
 /** @refcount 1 */
 function curl_error(CurlHandle $handle): string {}
 
+/** @genstubs-expose-comment-block
+ * URL encodes the given string
+ * @return string|false
+ */
 /** @refcount 1 */
 function curl_escape(CurlHandle $handle, string $string): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Decodes the given URL encoded string
+ * @return string|false
+ */
 /** @refcount 1 */
 function curl_unescape(CurlHandle $handle, string $string): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Set a cURL multi option
+ * @return bool
+ */
 function curl_multi_setopt(CurlMultiHandle $multi_handle, int $option, mixed $value): bool {}
 
+/** @genstubs-expose-comment-block
+ * Perform a cURL session
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return string|bool
+ */
 function curl_exec(CurlHandle $handle): string|bool {}
 
 /** @refcount 1 */
 function curl_file_create(string $filename, ?string $mime_type = null, ?string $posted_filename = null): CURLFile {}
 
+/** @genstubs-expose-comment-block
+ * Get information regarding a specific transfer
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @param int|null $option One of the CURLINFO_* constants.
+ * @return mixed
+ */
 function curl_getinfo(CurlHandle $handle, ?int $option = null): mixed {}
 
+/** @genstubs-expose-comment-block
+ * Initialize a cURL session
+ * @param string|null $url If provided, the CURLOPT_URL option will be set to its value. This can be set manually using the curl_setopt function.
+ * @return CurlHandle|false
+ */
 /** @refcount 1 */
 function curl_init(?string $url = null): CurlHandle|false {}
+/** @genstubs-expose-comment-block
+ * Performs any connection upkeep checks
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return bool
+ */
 
 #if LIBCURL_VERSION_NUM >= 0x073e00 /* Available since 7.62.0 */
 function curl_upkeep(CurlHandle $handle): bool {}
 #endif
 
+/** @genstubs-expose-comment-block
+ * Add a normal cURL handle to a cURL multi handle
+ * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return int
+ */
 function curl_multi_add_handle(CurlMultiHandle $multi_handle, CurlHandle $handle): int {}
 
 function curl_multi_get_handles(CurlMultiHandle $multi_handle): array {}
 
+/** @genstubs-expose-comment-block
+ * Remove all cURL handles from a multi handle
+ * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.
+ * @return void
+ */
 function curl_multi_close(CurlMultiHandle $multi_handle): void {}
 
+/** @genstubs-expose-comment-block
+ * Return the last multi curl error number
+ * @return int
+ */
 function curl_multi_errno(CurlMultiHandle $multi_handle): int {}
 
+/** @genstubs-expose-comment-block
+ * Run the sub-connections of the current cURL handle
+ * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.
+ * @param int $still_running A reference to a flag to tell whether the operations are still running.
+ * @return int
+ */
 /** @param int $still_running */
 function curl_multi_exec(CurlMultiHandle $multi_handle, &$still_running): int {}
 
+/** @genstubs-expose-comment-block
+ * Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return string|null
+ */
 function curl_multi_getcontent(CurlHandle $handle): ?string {}
 
+/** @genstubs-expose-comment-block
+ * Get information about the current transfers
+ * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.
+ * @param int $queued_messages Number of messages that are still in the queue
+ * @return array|false
+ */
 /**
  * @param int $queued_messages
  * @return array<string, int|object>|false
@@ -3793,43 +3878,116 @@ function curl_multi_getcontent(CurlHandle $handle): ?string {}
  */
 function curl_multi_info_read(CurlMultiHandle $multi_handle, &$queued_messages = null): array|false {}
 
+/** @genstubs-expose-comment-block
+ * Returns a new cURL multi handle
+ * @return CurlMultiHandle
+ */
 /** @refcount 1 */
 function curl_multi_init(): CurlMultiHandle {}
 
+/** @genstubs-expose-comment-block
+ * Remove a handle from a set of cURL handles
+ * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @return int
+ */
 function curl_multi_remove_handle(CurlMultiHandle $multi_handle, CurlHandle $handle): int {}
 
+/** @genstubs-expose-comment-block
+ * Wait until reading or writing is possible for any cURL multi handle connection
+ * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.
+ * @param float $timeout Time, in seconds, to wait for a response from the active cURL multi handle connections.
+ * @return int
+ */
 function curl_multi_select(CurlMultiHandle $multi_handle, float $timeout = 1.0): int {}
 
+/** @genstubs-expose-comment-block
+ * Return string describing error code
+ * @return string|null
+ */
 /** @refcount 1 */
 function curl_multi_strerror(int $error_code): ?string {}
 
+/** @genstubs-expose-comment-block
+ * Pause and unpause a connection
+ * @return int
+ */
 function curl_pause(CurlHandle $handle, int $flags): int {}
 
+/** @genstubs-expose-comment-block
+ * Reset all options of a libcurl session handle
+ * @return void
+ */
 function curl_reset(CurlHandle $handle): void {}
 
+/** @genstubs-expose-comment-block
+ * Set multiple options for a cURL transfer
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @param array $options An array specifying which options to set and their values. The keys should be valid curl_setopt constants or their integer equivalents.
+ * @return bool
+ */
 function curl_setopt_array(CurlHandle $handle, array $options): bool {}
 
+/** @genstubs-expose-comment-block
+ * Set an option for a cURL transfer
+ * @param CurlHandle $handle A cURL handle returned by curl_init.
+ * @param int $option The CURLOPT_* option to set.
+ * @param mixed $value The value to be set on option. See the description of the CURLOPT_* constants for details on the type of values each constant expects.
+ * @return bool
+ */
 function curl_setopt(CurlHandle $handle, int $option, mixed $value): bool {}
 
 #[\Deprecated(since: '8.5', message: "as it has no effect since PHP 8.0")]
+/** @genstubs-expose-comment-block
+ * Close a cURL share handle
+ * @return void
+ */
 function curl_share_close(CurlShareHandle $share_handle): void {}
 
+/** @genstubs-expose-comment-block
+ * Return the last share curl error number
+ * @return int
+ */
 function curl_share_errno(CurlShareHandle $share_handle): int {}
 
+/** @genstubs-expose-comment-block
+ * Initialize a cURL share handle
+ * @return CurlShareHandle
+ */
 /** @refcount 1 */
 function curl_share_init(): CurlShareHandle {}
 
+/** @genstubs-expose-comment-block
+ * Set an option for a cURL share handle
+ * @return bool
+ */
 function curl_share_setopt(CurlShareHandle $share_handle, int $option, mixed $value): bool {}
 
+/** @genstubs-expose-comment-block
+ * Return string describing the given error code
+ * @return string|null
+ */
 /** @refcount 1 */
 function curl_share_strerror(int $error_code): ?string {}
 
+/** @genstubs-expose-comment-block
+ * Initialize a persistent cURL share handle
+ * @return CurlSharePersistentHandle
+ */
 /** @refcount 1 */
 function curl_share_init_persistent(array $share_options): CurlSharePersistentHandle {}
 
+/** @genstubs-expose-comment-block
+ * Return string describing the given error code
+ * @return string|null
+ */
 /** @refcount 1 */
 function curl_strerror(int $error_code): ?string {}
 
+/** @genstubs-expose-comment-block
+ * Gets cURL version information
+ * @return array|false
+ */
 /**
  * @return array<string, int|string|array>|false
  * @refcount 1

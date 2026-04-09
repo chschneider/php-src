@@ -151,15 +151,45 @@ const JSON_ERROR_UTF16 = UNKNOWN;
  */
 const JSON_ERROR_NON_BACKED_ENUM = UNKNOWN;
 
+/** @genstubs-expose-comment-block
+ * Returns the JSON representation of a value
+ * @param mixed $value The value being encoded. Can be any type except a resource.
+ * @param int $flags Bitmask consisting of JSON_FORCE_OBJECT, JSON_HEX_QUOT, JSON_HEX_TAG, JSON_HEX_AMP, JSON_HEX_APOS, JSON_INVALID_UTF8_IGNORE, JSON_INVALID_UTF8_SUBSTITUTE, JSON_NUMERIC_CHECK, JSON_PARTIAL_OUTPUT_ON_ERROR, JSON_PRESERVE_ZERO_FRACTION, JSON_PRETTY_PRINT, JSON_UNESCAPED_LINE_TERMINATORS, JSON_UNESCAPED_SLASHES, JSON_UNESCAPED_UNICODE, JSON_THROW_ON_ERROR. The behaviour of these constants is described on the JSON constants page.
+ * @param int $depth Set the maximum depth. Must be greater than zero.
+ * @return string|false
+ */
 /** @refcount 1 */
 function json_encode(mixed $value, int $flags = 0, int $depth = 512): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Decodes a JSON string
+ * @param string $json The json string being decoded.
+ * @param bool|null $associative When true, JSON objects will be returned as associative arrays; when false, JSON objects will be returned as objects. When null, JSON objects will be returned as associative arrays or objects depending on whether JSON_OBJECT_AS_ARRAY is set in the flags.
+ * @param int $depth Maximum nesting depth of the structure being decoded. The value must be greater than 0, and less than or equal to 2147483647.
+ * @param int $flags Bitmask of JSON_BIGINT_AS_STRING, JSON_INVALID_UTF8_IGNORE, JSON_INVALID_UTF8_SUBSTITUTE, JSON_OBJECT_AS_ARRAY, JSON_THROW_ON_ERROR. The behaviour of these constants is described on the JSON constants page.
+ * @return mixed
+ */
 function json_decode(string $json, ?bool $associative = null, int $depth = 512, int $flags = 0): mixed {}
 
+/** @genstubs-expose-comment-block
+ * Checks if a string contains valid JSON
+ * @param string $json The string to validate.
+ * @param int $depth Maximum nesting depth of the structure being decoded. The value must be greater than 0, and less than or equal to 2147483647.
+ * @param int $flags Currently only JSON_INVALID_UTF8_IGNORE is accepted.
+ * @return bool
+ */
 function json_validate(string $json, int $depth = 512, int $flags = 0): bool {}
 
+/** @genstubs-expose-comment-block
+ * Returns the last error occurred
+ * @return int
+ */
 function json_last_error(): int {}
 
+/** @genstubs-expose-comment-block
+ * Returns the error string of the last json_validate(), json_encode() or json_decode() call
+ * @return string
+ */
 /** @refcount 1 */
 function json_last_error_msg(): string {}
 

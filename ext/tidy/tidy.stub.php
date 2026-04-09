@@ -815,6 +815,11 @@ function tidy_parse_string(string $string, array|string|null $config = null, ?st
 
 function tidy_get_error_buffer(tidy $tidy): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Return a string representing the parsed tidy markup
+ * @param tidy $tidy The Tidy object.
+ * @return string
+ */
 function tidy_get_output(tidy $tidy): string {}
 
 function tidy_parse_file(string $filename, array|string|null $config = null, ?string $encoding = null, bool $useIncludePath = false): tidy|false {}
@@ -843,12 +848,32 @@ function tidy_is_xhtml(tidy $tidy): bool {}
 
 function tidy_is_xml(tidy $tidy): bool {}
 
+/** @genstubs-expose-comment-block
+ * Returns the Number of Tidy errors encountered for specified document
+ * @param tidy $tidy The Tidy object.
+ * @return int
+ */
 function tidy_error_count(tidy $tidy): int {}
 
+/** @genstubs-expose-comment-block
+ * Returns the Number of Tidy warnings encountered for specified document
+ * @param tidy $tidy The Tidy object.
+ * @return int
+ */
 function tidy_warning_count(tidy $tidy): int {}
 
+/** @genstubs-expose-comment-block
+ * Returns the Number of Tidy accessibility warnings encountered for specified document
+ * @param tidy $tidy The Tidy object.
+ * @return int
+ */
 function tidy_access_count(tidy $tidy): int {}
 
+/** @genstubs-expose-comment-block
+ * Returns the Number of Tidy configuration errors encountered for specified document
+ * @param tidy $tidy The Tidy object.
+ * @return int
+ */
 function tidy_config_count(tidy $tidy): int {}
 
 function tidy_getopt(tidy $tidy, string $option): string|int|bool {}
