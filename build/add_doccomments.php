@@ -56,7 +56,7 @@ function type($element, $selector = '') {
 }
 
 # Process function documentation files
-foreach (glob("$doc_path/reference/*/functions/*.xml") as $file) {
+foreach (glob("$doc_path/reference/*/*/*.xml") as $file) {
 	$xml = file_get_contents($file);
 	do {
 		$oldxml = $xml;

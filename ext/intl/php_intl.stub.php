@@ -443,36 +443,119 @@ function numfmt_get_error_message(NumberFormatter $formatter): string {}
 
 /* grapheme */
 
+/** @genstubs-expose-comment-block
+ * Get string length in grapheme units
+ * @param string $string The string being measured for length. It must be a valid UTF-8 string.
+ * @return int|false|null
+ */
 function grapheme_strlen(string $string): int|false|null {}
 
+/** @genstubs-expose-comment-block
+ * Find position (in grapheme units) of first occurrence of a string
+ * @param string $haystack The string to look in. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param int $offset The optional offset parameter allows you to specify where in haystack to start searching as an offset in grapheme units (not bytes or characters). If the offset is negative, it is treated relative to the end of the string. The position returned is still relative to the beginning of haystack regardless of the value of offset.
+ * @return int|false
+ */
 function grapheme_strpos(string $haystack, string $needle, int $offset = 0, string $locale = ""): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Find position (in grapheme units) of first occurrence of a case-insensitive string
+ * @param string $haystack The string to look in. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param int $offset The optional offset parameter allows you to specify where in haystack to start searching as an offset in grapheme units (not bytes or characters). If the offset is negative, it is treated relative to the end of the string. The position returned is still relative to the beginning of haystack regardless of the value of offset.
+ * @return int|false
+ */
 function grapheme_stripos(string $haystack, string $needle, int $offset = 0, string $locale = ""): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Find position (in grapheme units) of last occurrence of a string
+ * @param string $haystack The string to look in. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param int $offset The optional offset parameter allows you to specify where in haystack to start searching as an offset in grapheme units (not bytes or characters). The position returned is still relative to the beginning of haystack regardless of the value of offset.
+ * @return int|false
+ */
 function grapheme_strrpos(string $haystack, string $needle, int $offset = 0, string $locale = ""): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Find position (in grapheme units) of last occurrence of a case-insensitive string
+ * @param string $haystack The string to look in. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param int $offset The optional offset parameter allows you to specify where in haystack to start searching as an offset in grapheme units (not bytes or characters). The position returned is still relative to the beginning of haystack regardless of the value of offset.
+ * @return int|false
+ */
 function grapheme_strripos(string $haystack, string $needle, int $offset = 0, string $locale = ""): int|false {}
 
+/** @genstubs-expose-comment-block
+ * Return part of a string
+ * @param string $string The input string. Must be valid UTF-8.
+ * @param int $offset Start position in default grapheme units. If offset is non-negative, the returned string will start at the offset'th position in string, counting from zero. If offset is negative, the returned string will start at the offset'th grapheme unit from the end of string.
+ * @param int|null $length Length in grapheme units. If length is given and is positive, the string returned will contain at most length grapheme units beginning from offset (depending on the length of string). If length is given and is negative, then that many grapheme units will be omitted from the end of string (after the start position has been calculated when offset is negative). If offset denotes a position beyond this truncation, an empty string will be returned.
+ * @return string|false
+ */
 function grapheme_substr(string $string, int $offset, ?int $length = null, string $locale = ""): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Returns part of haystack string from the first occurrence of needle to the end of haystack
+ * @param string $haystack The input string. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param bool $beforeNeedle If true, grapheme_strstr returns the part of the haystack before the first occurrence of the needle (excluding the needle).
+ * @return string|false
+ */
 function grapheme_strstr(string $haystack, string $needle, bool $beforeNeedle = false, string $locale = ""): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Returns part of haystack string from the first occurrence of case-insensitive needle to the end of haystack
+ * @param string $haystack The input string. Must be valid UTF-8.
+ * @param string $needle The string to look for. Must be valid UTF-8.
+ * @param bool $beforeNeedle If true, grapheme_stristr returns the part of the haystack before the first occurrence of the needle (excluding needle).
+ * @return string|false
+ */
 function grapheme_stristr(string $haystack, string $needle, bool $beforeNeedle = false, string $locale = ""): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Split a string into an array
+ * @return array|false
+ */
 function grapheme_str_split(string $string, int $length = 1): array|false {}
 
 function grapheme_levenshtein(string $string1, string $string2, int $insertion_cost = 1, int $replacement_cost = 1, int $deletion_cost = 1, string $locale = ""): int|false {}
 
 function grapheme_strrev(string $string): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Function to extract a sequence of default grapheme clusters from a text buffer, which must be encoded in UTF-8
+ * @param string $haystack String to search.
+ * @param int $size Maximum number items - based on the type - to return.
+ * @param int $type Defines the type of units referred to by the size parameter:
+ * @param int $offset Starting position in haystack in bytes - if given, it must be zero or a positive value that is less than or equal to the length of haystack in bytes, or a negative value that counts from the end of haystack. If offset does not point to the first byte of a UTF-8 character, the start position is moved to the next character boundary.
+ * @param int $next Reference to a value that will be set to the next starting position. When the call returns, this may point to the first byte position past the end of the string.
+ * @return string|false
+ */
 /** @param int $next */
 function grapheme_extract(string $haystack, int $size, int $type = GRAPHEME_EXTR_COUNT, int $offset = 0, &$next = null): string|false {}
 
 /* idn */
 
+/** @genstubs-expose-comment-block
+ * Convert domain name to IDNA ASCII form
+ * @param string $domain The domain to convert, which must be UTF-8 encoded.
+ * @param int $flags Conversion options - combination of IDNA_* constants (except IDNA_ERROR_* constants).
+ * @param int $variant Either INTL_IDNA_VARIANT_2003 (deprecated as of PHP 7.2.0) for IDNA 2003 or INTL_IDNA_VARIANT_UTS46 (only available as of ICU 4.6) for UTS #46.
+ * @param array $idna_info This parameter can be used only if INTL_IDNA_VARIANT_UTS46 was used for variant. In that case, it will be filled with an array with the keys 'result', the possibly illegal result of the transformation, 'isTransitionalDifferent', a boolean indicating whether the usage of the transitional mechanisms of UTS #46 either has or would have changed the result and 'errors', which is an int representing a bitset of the error constants IDNA_ERROR_*.
+ * @return string|false
+ */
 /** @param array $idna_info */
 function idn_to_ascii(string $domain, int $flags = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, &$idna_info = null): string|false {}
 
+/** @genstubs-expose-comment-block
+ * Convert domain name from IDNA ASCII to Unicode
+ * @param string $domain Domain to convert in an IDNA ASCII-compatible format.
+ * @param int $flags Conversion options - combination of IDNA_* constants (except IDNA_ERROR_* constants).
+ * @param int $variant Either INTL_IDNA_VARIANT_2003 (deprecated as of PHP 7.2.0) for IDNA 2003 or INTL_IDNA_VARIANT_UTS46 (only available as of ICU 4.6) for UTS #46.
+ * @param array $idna_info This parameter can be used only if INTL_IDNA_VARIANT_UTS46 was used for variant. In that case, it will be filled with an array with the keys 'result', the possibly illegal result of the transformation, 'isTransitionalDifferent', a boolean indicating whether the usage of the transitional mechanisms of UTS #46 either has or would have changed the result and 'errors', which is an int representing a bitset of the error constants IDNA_ERROR_*.
+ * @return string|false
+ */
 /** @param array $idna_info */
 function idn_to_utf8(string $domain, int $flags = IDNA_DEFAULT, int $variant = INTL_IDNA_VARIANT_UTS46, &$idna_info = null): string|false {}
 
