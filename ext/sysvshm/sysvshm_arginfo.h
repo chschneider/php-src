@@ -1,5 +1,5 @@
 /* This is a generated file, edit sysvshm.stub.php instead.
- * Stub hash: 792c695a705678a3779d62cef8a5136069f98dee */
+ * Stub hash: 4dcc3f484a901c91e0828631294314b8a2b00dbb */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_shm_attach, 0, 1, SysvSharedMemory, MAY_BE_FALSE)
 	ZEND_ARG_TYPE_INFO(0, key, IS_LONG, 0)
@@ -42,13 +42,13 @@ ZEND_FUNCTION(shm_get_var);
 ZEND_FUNCTION(shm_remove_var);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(shm_attach, arginfo_shm_attach)
-	ZEND_FE(shm_detach, arginfo_shm_detach)
-	ZEND_FE(shm_has_var, arginfo_shm_has_var)
-	ZEND_FE(shm_remove, arginfo_shm_remove)
-	ZEND_FE(shm_put_var, arginfo_shm_put_var)
-	ZEND_FE(shm_get_var, arginfo_shm_get_var)
-	ZEND_FE(shm_remove_var, arginfo_shm_remove_var)
+	ZEND_RAW_FENTRY("shm_attach", zif_shm_attach, arginfo_shm_attach, 0, NULL, "/**\n * Creates or open a shared memory segment\n * @return SysvSharedMemory|false\n */")
+	ZEND_RAW_FENTRY("shm_detach", zif_shm_detach, arginfo_shm_detach, 0, NULL, "/**\n * Disconnects from shared memory segment\n * @return true\n */")
+	ZEND_RAW_FENTRY("shm_has_var", zif_shm_has_var, arginfo_shm_has_var, 0, NULL, "/**\n * Check whether a specific entry exists\n * @return bool\n */")
+	ZEND_RAW_FENTRY("shm_remove", zif_shm_remove, arginfo_shm_remove, 0, NULL, "/**\n * Removes shared memory from Unix systems\n * @return bool\n */")
+	ZEND_RAW_FENTRY("shm_put_var", zif_shm_put_var, arginfo_shm_put_var, 0, NULL, "/**\n * Inserts or updates a variable in shared memory\n * @return bool\n */")
+	ZEND_RAW_FENTRY("shm_get_var", zif_shm_get_var, arginfo_shm_get_var, 0, NULL, "/**\n * Returns a variable from shared memory\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("shm_remove_var", zif_shm_remove_var, arginfo_shm_remove_var, 0, NULL, "/**\n * Removes a variable from shared memory\n * @return bool\n */")
 	ZEND_FE_END
 };
 

@@ -1,5 +1,5 @@
 /* This is a generated file, edit mysqli.stub.php instead.
- * Stub hash: dc804bc50cd0a0e14dafc0e03564d5699d641db0 */
+ * Stub hash: 3959d2936d0938df480c2a8e7d6f7ca9728973c2 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_MASK_EX(arginfo_mysqli_affected_rows, 0, 1, MAY_BE_LONG|MAY_BE_STRING)
 	ZEND_ARG_OBJ_INFO(0, mysql, mysqli, 0)
@@ -834,7 +834,7 @@ static const zend_function_entry ext_functions[] = {
 	ZEND_FE(mysqli_character_set_name, arginfo_mysqli_character_set_name)
 	ZEND_FE(mysqli_close, arginfo_mysqli_close)
 	ZEND_FE(mysqli_commit, arginfo_mysqli_commit)
-	ZEND_FE(mysqli_connect, arginfo_mysqli_connect)
+	ZEND_RAW_FENTRY("mysqli_connect", zif_mysqli_connect, arginfo_mysqli_connect, 0, NULL, "/**\n * Alias mysqli::__construct\n */")
 	ZEND_FE(mysqli_connect_errno, arginfo_mysqli_connect_errno)
 	ZEND_FE(mysqli_connect_error, arginfo_mysqli_connect_error)
 	ZEND_FE(mysqli_data_seek, arginfo_mysqli_data_seek)
@@ -861,11 +861,11 @@ static const zend_function_entry ext_functions[] = {
 	ZEND_FE(mysqli_field_tell, arginfo_mysqli_field_tell)
 	ZEND_FE(mysqli_free_result, arginfo_mysqli_free_result)
 	ZEND_FE(mysqli_get_connection_stats, arginfo_mysqli_get_connection_stats)
-	ZEND_FE(mysqli_get_client_stats, arginfo_mysqli_get_client_stats)
+	ZEND_RAW_FENTRY("mysqli_get_client_stats", zif_mysqli_get_client_stats, arginfo_mysqli_get_client_stats, 0, NULL, "/**\n * Returns client per-process statistics\n * @return array\n */")
 	ZEND_FE(mysqli_get_charset, arginfo_mysqli_get_charset)
 	ZEND_FE(mysqli_get_client_info, arginfo_mysqli_get_client_info)
 	ZEND_FE(mysqli_get_client_version, arginfo_mysqli_get_client_version)
-	ZEND_FE(mysqli_get_links_stats, arginfo_mysqli_get_links_stats)
+	ZEND_RAW_FENTRY("mysqli_get_links_stats", zif_mysqli_get_links_stats, arginfo_mysqli_get_links_stats, 0, NULL, "/**\n * Return information about open and cached links\n * @return array\n */")
 	ZEND_FE(mysqli_get_host_info, arginfo_mysqli_get_host_info)
 	ZEND_FE(mysqli_get_proto_info, arginfo_mysqli_get_proto_info)
 	ZEND_FE(mysqli_get_server_info, arginfo_mysqli_get_server_info)
@@ -885,7 +885,7 @@ static const zend_function_entry ext_functions[] = {
 	ZEND_RAW_FENTRY("mysqli_ping", zif_mysqli_ping, arginfo_mysqli_ping, ZEND_ACC_DEPRECATED, NULL, NULL)
 	ZEND_FE(mysqli_poll, arginfo_mysqli_poll)
 	ZEND_FE(mysqli_prepare, arginfo_mysqli_prepare)
-	ZEND_FE(mysqli_report, arginfo_mysqli_report)
+	ZEND_RAW_FENTRY("mysqli_report", zif_mysqli_report, arginfo_mysqli_report, 0, NULL, "/**\n * Alias mysqli_driver->report_mode\n */")
 	ZEND_FE(mysqli_query, arginfo_mysqli_query)
 	ZEND_FE(mysqli_real_connect, arginfo_mysqli_real_connect)
 	ZEND_FE(mysqli_real_escape_string, arginfo_mysqli_real_escape_string)

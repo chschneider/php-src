@@ -1,5 +1,5 @@
 /* This is a generated file, edit php_intl.stub.php instead.
- * Stub hash: c52fd0def2530be628beedbbcdcfecdcb07449a8 */
+ * Stub hash: b6c471ac0bd7367a2f79049fabf2434c23da0fb3 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_intlcal_create_instance, 0, 0, IntlCalendar, 1)
 	ZEND_ARG_OBJ_TYPE_MASK(0, timezone, IntlTimeZone|DateTimeZone, MAY_BE_STRING|MAY_BE_NULL, "null")
@@ -269,11 +269,11 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_intl_get_error_message, 0, 0, IS
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_intl_is_failure, 0, 1, _IS_BOOL, 0)
-	ZEND_ARG_TYPE_INFO(0, errorCode, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, errorCode, IS_LONG, 0, "is a value that returned by functions: intl_get_error_code, collator_get_error_code .")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_intl_error_name, 0, 1, IS_STRING, 0)
-	ZEND_ARG_TYPE_INFO(0, errorCode, IS_LONG, 0)
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, errorCode, IS_LONG, 0, "ICU error code.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_datefmt_create, 0, 1, IntlDateFormatter, 1)
@@ -1068,10 +1068,10 @@ static const zend_function_entry ext_functions[] = {
 	ZEND_FE(collator_get_error_code, arginfo_collator_get_error_code)
 	ZEND_FE(collator_get_error_message, arginfo_collator_get_error_message)
 	ZEND_FE(collator_get_sort_key, arginfo_collator_get_sort_key)
-	ZEND_FE(intl_get_error_code, arginfo_intl_get_error_code)
-	ZEND_FE(intl_get_error_message, arginfo_intl_get_error_message)
-	ZEND_FE(intl_is_failure, arginfo_intl_is_failure)
-	ZEND_FE(intl_error_name, arginfo_intl_error_name)
+	ZEND_RAW_FENTRY("intl_get_error_code", zif_intl_get_error_code, arginfo_intl_get_error_code, 0, NULL, "/**\n * Get the last error code\n * @return int\n */")
+	ZEND_RAW_FENTRY("intl_get_error_message", zif_intl_get_error_message, arginfo_intl_get_error_message, 0, NULL, "/**\n * Get description of the last error\n * @return string\n */")
+	ZEND_RAW_FENTRY("intl_is_failure", zif_intl_is_failure, arginfo_intl_is_failure, 0, NULL, "/**\n * Check whether the given error code indicates failure\n * @param int $errorCode is a value that returned by functions: intl_get_error_code, collator_get_error_code .\n * @return bool\n */")
+	ZEND_RAW_FENTRY("intl_error_name", zif_intl_error_name, arginfo_intl_error_name, 0, NULL, "/**\n * Get symbolic name for a given error code\n * @param int $errorCode ICU error code.\n * @return string\n */")
 	ZEND_FE(datefmt_create, arginfo_datefmt_create)
 	ZEND_FE(datefmt_get_datetype, arginfo_datefmt_get_datetype)
 	ZEND_FE(datefmt_get_timetype, arginfo_datefmt_get_timetype)

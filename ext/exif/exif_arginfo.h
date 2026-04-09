@@ -1,5 +1,5 @@
 /* This is a generated file, edit exif.stub.php instead.
- * Stub hash: 633b2db018fa1453845a854a6361f11f107f4653 */
+ * Stub hash: 9a5aae061eaa34bd7d63b963d1ea02434ca79112 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_MASK_EX(arginfo_exif_tagname, 0, 1, MAY_BE_STRING|MAY_BE_FALSE)
 	ZEND_ARG_TYPE_INFO(0, index, IS_LONG, 0)
@@ -29,10 +29,10 @@ ZEND_FUNCTION(exif_thumbnail);
 ZEND_FUNCTION(exif_imagetype);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(exif_tagname, arginfo_exif_tagname)
-	ZEND_FE(exif_read_data, arginfo_exif_read_data)
-	ZEND_FE(exif_thumbnail, arginfo_exif_thumbnail)
-	ZEND_FE(exif_imagetype, arginfo_exif_imagetype)
+	ZEND_RAW_FENTRY("exif_tagname", zif_exif_tagname, arginfo_exif_tagname, 0, NULL, "/**\n * Get the header name for an index\n * @return string|false\n */")
+	ZEND_RAW_FENTRY("exif_read_data", zif_exif_read_data, arginfo_exif_read_data, 0, NULL, "/**\n * Reads the EXIF headers from an image file\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("exif_thumbnail", zif_exif_thumbnail, arginfo_exif_thumbnail, 0, NULL, "/**\n * Retrieve the embedded thumbnail of an image\n * @return string|false\n */")
+	ZEND_RAW_FENTRY("exif_imagetype", zif_exif_imagetype, arginfo_exif_imagetype, 0, NULL, "/**\n * Determine the type of an image\n * @return int|false\n */")
 	ZEND_FE_END
 };
 

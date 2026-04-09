@@ -1,20 +1,20 @@
 /* This is a generated file, edit curl.stub.php instead.
- * Stub hash: 10ebdc94560ed19ecd6b61a11b3dab5d32989d66 */
+ * Stub hash: 62730fbff34bf0f8bb9ef48d91446f6f479c6ff5 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_close, 0, 1, IS_VOID, 0)
 	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_curl_copy_handle, 0, 1, CurlHandle, MAY_BE_FALSE)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_errno, 0, 1, IS_LONG, 0)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_error, 0, 1, IS_STRING, 0)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_MASK_EX(arginfo_curl_escape, 0, 2, MAY_BE_STRING|MAY_BE_FALSE)
@@ -31,7 +31,7 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_setopt, 0, 3, _IS_BOO
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_MASK_EX(arginfo_curl_exec, 0, 1, MAY_BE_STRING|MAY_BE_BOOL)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_curl_file_create, 0, 1, CURLFile, 0)
@@ -41,23 +41,23 @@ ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_curl_file_create, 0, 1, CURLFile,
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_getinfo, 0, 1, IS_MIXED, 0)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, option, IS_LONG, 1, "null")
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, option, IS_LONG, 1, "null", "One of the CURLINFO_* constants.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_curl_init, 0, 0, CurlHandle, MAY_BE_FALSE)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, url, IS_STRING, 1, "null")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, url, IS_STRING, 1, "null", "If provided, the CURLOPT_URL option will be set to its value. This can be set manually using the curl_setopt function.")
 ZEND_END_ARG_INFO()
 
 #if LIBCURL_VERSION_NUM >= 0x073e00 /* Available since 7.62.0 */
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_upkeep, 0, 1, _IS_BOOL, 0)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
 ZEND_END_ARG_INFO()
 #endif
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_add_handle, 0, 2, IS_LONG, 0)
-	ZEND_ARG_OBJ_INFO(0, multi_handle, CurlMultiHandle, 0)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, multi_handle, CurlMultiHandle, 0, "A cURL multi handle returned by curl_multi_init.")
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_get_handles, 0, 1, IS_ARRAY, 0)
@@ -65,7 +65,7 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_get_handles, 0, 1, IS
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_close, 0, 1, IS_VOID, 0)
-	ZEND_ARG_OBJ_INFO(0, multi_handle, CurlMultiHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, multi_handle, CurlMultiHandle, 0, "A cURL multi handle returned by curl_multi_init.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_errno, 0, 1, IS_LONG, 0)
@@ -73,16 +73,16 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_errno, 0, 1, IS_LONG,
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_exec, 0, 2, IS_LONG, 0)
-	ZEND_ARG_OBJ_INFO(0, multi_handle, CurlMultiHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, multi_handle, CurlMultiHandle, 0, "A cURL multi handle returned by curl_multi_init.")
 	ZEND_ARG_INFO(1, still_running)
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_getcontent, 0, 1, IS_STRING, 1)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_MASK_EX(arginfo_curl_multi_info_read, 0, 1, MAY_BE_ARRAY|MAY_BE_FALSE)
-	ZEND_ARG_OBJ_INFO(0, multi_handle, CurlMultiHandle, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, multi_handle, CurlMultiHandle, 0, "A cURL multi handle returned by curl_multi_init.")
 	ZEND_ARG_INFO_WITH_DEFAULT_VALUE(1, queued_messages, "null")
 ZEND_END_ARG_INFO()
 
@@ -92,8 +92,8 @@ ZEND_END_ARG_INFO()
 #define arginfo_curl_multi_remove_handle arginfo_curl_multi_add_handle
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_select, 0, 1, IS_LONG, 0)
-	ZEND_ARG_OBJ_INFO(0, multi_handle, CurlMultiHandle, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, timeout, IS_DOUBLE, 0, "1.0")
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, multi_handle, CurlMultiHandle, 0, "A cURL multi handle returned by curl_multi_init.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, timeout, IS_DOUBLE, 0, "1.0", "Time, in seconds, to wait for a response from the active cURL multi handle connections.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_multi_strerror, 0, 1, IS_STRING, 1)
@@ -108,14 +108,14 @@ ZEND_END_ARG_INFO()
 #define arginfo_curl_reset arginfo_curl_close
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_setopt_array, 0, 2, _IS_BOOL, 0)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
-	ZEND_ARG_TYPE_INFO(0, options, IS_ARRAY, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, options, IS_ARRAY, 0, "An array specifying which options to set and their values. The keys should be valid curl_setopt constants or their integer equivalents.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_setopt, 0, 3, _IS_BOOL, 0)
-	ZEND_ARG_OBJ_INFO(0, handle, CurlHandle, 0)
-	ZEND_ARG_TYPE_INFO(0, option, IS_LONG, 0)
-	ZEND_ARG_TYPE_INFO(0, value, IS_MIXED, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, handle, CurlHandle, 0, "A cURL handle returned by curl_init.")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, option, IS_LONG, 0, "The CURLOPT_* option to set.")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, value, IS_MIXED, 0, "The value to be set on option. See the description of the CURLOPT_* constants for details on the type of values each constant expects.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_curl_share_close, 0, 1, IS_VOID, 0)
@@ -186,42 +186,42 @@ ZEND_FUNCTION(curl_version);
 
 static const zend_function_entry ext_functions[] = {
 	ZEND_RAW_FENTRY("curl_close", zif_curl_close, arginfo_curl_close, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(curl_copy_handle, arginfo_curl_copy_handle)
-	ZEND_FE(curl_errno, arginfo_curl_errno)
-	ZEND_FE(curl_error, arginfo_curl_error)
-	ZEND_FE(curl_escape, arginfo_curl_escape)
-	ZEND_FE(curl_unescape, arginfo_curl_unescape)
-	ZEND_FE(curl_multi_setopt, arginfo_curl_multi_setopt)
-	ZEND_FE(curl_exec, arginfo_curl_exec)
+	ZEND_RAW_FENTRY("curl_copy_handle", zif_curl_copy_handle, arginfo_curl_copy_handle, 0, NULL, "/**\n * Copy a cURL handle along with all of its preferences\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @return CurlHandle|false\n */")
+	ZEND_RAW_FENTRY("curl_errno", zif_curl_errno, arginfo_curl_errno, 0, NULL, "/**\n * Return the last error number\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @return int\n */")
+	ZEND_RAW_FENTRY("curl_error", zif_curl_error, arginfo_curl_error, 0, NULL, "/**\n * Return a string containing the last error for the current session\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @return string\n */")
+	ZEND_RAW_FENTRY("curl_escape", zif_curl_escape, arginfo_curl_escape, 0, NULL, "/**\n * URL encodes the given string\n * @return string|false\n */")
+	ZEND_RAW_FENTRY("curl_unescape", zif_curl_unescape, arginfo_curl_unescape, 0, NULL, "/**\n * Decodes the given URL encoded string\n * @return string|false\n */")
+	ZEND_RAW_FENTRY("curl_multi_setopt", zif_curl_multi_setopt, arginfo_curl_multi_setopt, 0, NULL, "/**\n * Set a cURL multi option\n * @return bool\n */")
+	ZEND_RAW_FENTRY("curl_exec", zif_curl_exec, arginfo_curl_exec, 0, NULL, "/**\n * Perform a cURL session\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @return string|bool\n */")
 	ZEND_FE(curl_file_create, arginfo_curl_file_create)
-	ZEND_FE(curl_getinfo, arginfo_curl_getinfo)
-	ZEND_FE(curl_init, arginfo_curl_init)
+	ZEND_RAW_FENTRY("curl_getinfo", zif_curl_getinfo, arginfo_curl_getinfo, 0, NULL, "/**\n * Get information regarding a specific transfer\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @param int|null $option One of the CURLINFO_* constants.\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("curl_init", zif_curl_init, arginfo_curl_init, 0, NULL, "/**\n * Initialize a cURL session\n * @param string|null $url If provided, the CURLOPT_URL option will be set to its value. This can be set manually using the curl_setopt function.\n * @return CurlHandle|false\n */")
 #if LIBCURL_VERSION_NUM >= 0x073e00 /* Available since 7.62.0 */
-	ZEND_FE(curl_upkeep, arginfo_curl_upkeep)
+	ZEND_RAW_FENTRY("curl_upkeep", zif_curl_upkeep, arginfo_curl_upkeep, 0, NULL, "/**\n * Performs any connection upkeep checks\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @return bool\n */")
 #endif
-	ZEND_FE(curl_multi_add_handle, arginfo_curl_multi_add_handle)
+	ZEND_RAW_FENTRY("curl_multi_add_handle", zif_curl_multi_add_handle, arginfo_curl_multi_add_handle, 0, NULL, "/**\n * Add a normal cURL handle to a cURL multi handle\n * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @return int\n */")
 	ZEND_FE(curl_multi_get_handles, arginfo_curl_multi_get_handles)
-	ZEND_FE(curl_multi_close, arginfo_curl_multi_close)
-	ZEND_FE(curl_multi_errno, arginfo_curl_multi_errno)
-	ZEND_FE(curl_multi_exec, arginfo_curl_multi_exec)
-	ZEND_FE(curl_multi_getcontent, arginfo_curl_multi_getcontent)
-	ZEND_FE(curl_multi_info_read, arginfo_curl_multi_info_read)
-	ZEND_FE(curl_multi_init, arginfo_curl_multi_init)
-	ZEND_FE(curl_multi_remove_handle, arginfo_curl_multi_remove_handle)
-	ZEND_FE(curl_multi_select, arginfo_curl_multi_select)
-	ZEND_FE(curl_multi_strerror, arginfo_curl_multi_strerror)
-	ZEND_FE(curl_pause, arginfo_curl_pause)
-	ZEND_FE(curl_reset, arginfo_curl_reset)
-	ZEND_FE(curl_setopt_array, arginfo_curl_setopt_array)
-	ZEND_FE(curl_setopt, arginfo_curl_setopt)
+	ZEND_RAW_FENTRY("curl_multi_close", zif_curl_multi_close, arginfo_curl_multi_close, 0, NULL, "/**\n * Remove all cURL handles from a multi handle\n * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.\n * @return void\n */")
+	ZEND_RAW_FENTRY("curl_multi_errno", zif_curl_multi_errno, arginfo_curl_multi_errno, 0, NULL, "/**\n * Return the last multi curl error number\n * @return int\n */")
+	ZEND_RAW_FENTRY("curl_multi_exec", zif_curl_multi_exec, arginfo_curl_multi_exec, 0, NULL, "/**\n * Run the sub-connections of the current cURL handle\n * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.\n * @param int $still_running A reference to a flag to tell whether the operations are still running.\n * @return int\n */")
+	ZEND_RAW_FENTRY("curl_multi_getcontent", zif_curl_multi_getcontent, arginfo_curl_multi_getcontent, 0, NULL, "/**\n * Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @return string|null\n */")
+	ZEND_RAW_FENTRY("curl_multi_info_read", zif_curl_multi_info_read, arginfo_curl_multi_info_read, 0, NULL, "/**\n * Get information about the current transfers\n * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.\n * @param int $queued_messages Number of messages that are still in the queue\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("curl_multi_init", zif_curl_multi_init, arginfo_curl_multi_init, 0, NULL, "/**\n * Returns a new cURL multi handle\n * @return CurlMultiHandle\n */")
+	ZEND_RAW_FENTRY("curl_multi_remove_handle", zif_curl_multi_remove_handle, arginfo_curl_multi_remove_handle, 0, NULL, "/**\n * Remove a handle from a set of cURL handles\n * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @return int\n */")
+	ZEND_RAW_FENTRY("curl_multi_select", zif_curl_multi_select, arginfo_curl_multi_select, 0, NULL, "/**\n * Wait until reading or writing is possible for any cURL multi handle connection\n * @param CurlMultiHandle $multi_handle A cURL multi handle returned by curl_multi_init.\n * @param float $timeout Time, in seconds, to wait for a response from the active cURL multi handle connections.\n * @return int\n */")
+	ZEND_RAW_FENTRY("curl_multi_strerror", zif_curl_multi_strerror, arginfo_curl_multi_strerror, 0, NULL, "/**\n * Return string describing error code\n * @return string|null\n */")
+	ZEND_RAW_FENTRY("curl_pause", zif_curl_pause, arginfo_curl_pause, 0, NULL, "/**\n * Pause and unpause a connection\n * @return int\n */")
+	ZEND_RAW_FENTRY("curl_reset", zif_curl_reset, arginfo_curl_reset, 0, NULL, "/**\n * Reset all options of a libcurl session handle\n * @return void\n */")
+	ZEND_RAW_FENTRY("curl_setopt_array", zif_curl_setopt_array, arginfo_curl_setopt_array, 0, NULL, "/**\n * Set multiple options for a cURL transfer\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @param array $options An array specifying which options to set and their values. The keys should be valid curl_setopt constants or their integer equivalents.\n * @return bool\n */")
+	ZEND_RAW_FENTRY("curl_setopt", zif_curl_setopt, arginfo_curl_setopt, 0, NULL, "/**\n * Set an option for a cURL transfer\n * @param CurlHandle $handle A cURL handle returned by curl_init.\n * @param int $option The CURLOPT_* option to set.\n * @param mixed $value The value to be set on option. See the description of the CURLOPT_* constants for details on the type of values each constant expects.\n * @return bool\n */")
 	ZEND_RAW_FENTRY("curl_share_close", zif_curl_share_close, arginfo_curl_share_close, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(curl_share_errno, arginfo_curl_share_errno)
-	ZEND_FE(curl_share_init, arginfo_curl_share_init)
-	ZEND_FE(curl_share_setopt, arginfo_curl_share_setopt)
-	ZEND_FE(curl_share_strerror, arginfo_curl_share_strerror)
-	ZEND_FE(curl_share_init_persistent, arginfo_curl_share_init_persistent)
-	ZEND_FE(curl_strerror, arginfo_curl_strerror)
-	ZEND_FE(curl_version, arginfo_curl_version)
+	ZEND_RAW_FENTRY("curl_share_errno", zif_curl_share_errno, arginfo_curl_share_errno, 0, NULL, "/**\n * Return the last share curl error number\n * @return int\n */")
+	ZEND_RAW_FENTRY("curl_share_init", zif_curl_share_init, arginfo_curl_share_init, 0, NULL, "/**\n * Initialize a cURL share handle\n * @return CurlShareHandle\n */")
+	ZEND_RAW_FENTRY("curl_share_setopt", zif_curl_share_setopt, arginfo_curl_share_setopt, 0, NULL, "/**\n * Set an option for a cURL share handle\n * @return bool\n */")
+	ZEND_RAW_FENTRY("curl_share_strerror", zif_curl_share_strerror, arginfo_curl_share_strerror, 0, NULL, "/**\n * Return string describing the given error code\n * @return string|null\n */")
+	ZEND_RAW_FENTRY("curl_share_init_persistent", zif_curl_share_init_persistent, arginfo_curl_share_init_persistent, 0, NULL, "/**\n * Initialize a persistent cURL share handle\n * @return CurlSharePersistentHandle\n */")
+	ZEND_RAW_FENTRY("curl_strerror", zif_curl_strerror, arginfo_curl_strerror, 0, NULL, "/**\n * Return string describing the given error code\n * @return string|null\n */")
+	ZEND_RAW_FENTRY("curl_version", zif_curl_version, arginfo_curl_version, 0, NULL, "/**\n * Gets cURL version information\n * @return array|false\n */")
 	ZEND_FE_END
 };
 

@@ -1,5 +1,5 @@
 /* This is a generated file, edit filter.stub.php instead.
- * Stub hash: c3eb55dfec619af1e46be206f51a2b0893ed399f */
+ * Stub hash: a02184e0c6b123b181793a0cef2331e0f2d5752b */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_filter_has_var, 0, 2, _IS_BOOL, 0)
 	ZEND_ARG_TYPE_INFO(0, input_type, IS_LONG, 0)
@@ -47,13 +47,13 @@ ZEND_FUNCTION(filter_list);
 ZEND_FUNCTION(filter_id);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(filter_has_var, arginfo_filter_has_var)
-	ZEND_FE(filter_input, arginfo_filter_input)
-	ZEND_FE(filter_var, arginfo_filter_var)
-	ZEND_FE(filter_input_array, arginfo_filter_input_array)
-	ZEND_FE(filter_var_array, arginfo_filter_var_array)
-	ZEND_FE(filter_list, arginfo_filter_list)
-	ZEND_FE(filter_id, arginfo_filter_id)
+	ZEND_RAW_FENTRY("filter_has_var", zif_filter_has_var, arginfo_filter_has_var, 0, NULL, "/**\n * Checks if a variable of the specified type exists\n * @return bool\n */")
+	ZEND_RAW_FENTRY("filter_input", zif_filter_input, arginfo_filter_input, 0, NULL, "/**\n * Gets a specific external variable by name and optionally filters it\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("filter_var", zif_filter_var, arginfo_filter_var, 0, NULL, "/**\n * Filters a variable with a specified filter\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("filter_input_array", zif_filter_input_array, arginfo_filter_input_array, 0, NULL, "/**\n * Gets external variables and optionally filters them\n * @return array|false|null\n */")
+	ZEND_RAW_FENTRY("filter_var_array", zif_filter_var_array, arginfo_filter_var_array, 0, NULL, "/**\n * Gets multiple variables and optionally filters them\n * @return array|false|null\n */")
+	ZEND_RAW_FENTRY("filter_list", zif_filter_list, arginfo_filter_list, 0, NULL, "/**\n * Returns a list of all supported filters\n * @return array\n */")
+	ZEND_RAW_FENTRY("filter_id", zif_filter_id, arginfo_filter_id, 0, NULL, "/**\n * Returns the filter ID belonging to a named filter\n * @return int|false\n */")
 	ZEND_FE_END
 };
 

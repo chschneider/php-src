@@ -1,5 +1,5 @@
 /* This is a generated file, edit snmp.stub.php instead.
- * Stub hash: e2451ac3ea0fa5eb1158e8b7252e61c6794d514f */
+ * Stub hash: ee73d07f5194a4a62c395d743a62c954528240ad */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_snmpget, 0, 3, IS_MIXED, 0)
 	ZEND_ARG_TYPE_INFO(0, hostname, IS_STRING, 0)
@@ -196,30 +196,30 @@ ZEND_METHOD(SNMP, getErrno);
 ZEND_METHOD(SNMP, getError);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(snmpget, arginfo_snmpget)
-	ZEND_FE(snmpgetnext, arginfo_snmpgetnext)
-	ZEND_FE(snmpwalk, arginfo_snmpwalk)
-	ZEND_FE(snmprealwalk, arginfo_snmprealwalk)
-	ZEND_RAW_FENTRY("snmpwalkoid", zif_snmprealwalk, arginfo_snmpwalkoid, 0, NULL, NULL)
-	ZEND_FE(snmpset, arginfo_snmpset)
-	ZEND_FE(snmp_get_quick_print, arginfo_snmp_get_quick_print)
-	ZEND_FE(snmp_set_quick_print, arginfo_snmp_set_quick_print)
-	ZEND_FE(snmp_set_enum_print, arginfo_snmp_set_enum_print)
-	ZEND_FE(snmp_set_oid_output_format, arginfo_snmp_set_oid_output_format)
-	ZEND_RAW_FENTRY("snmp_set_oid_numeric_print", zif_snmp_set_oid_output_format, arginfo_snmp_set_oid_numeric_print, 0, NULL, NULL)
-	ZEND_FE(snmp2_get, arginfo_snmp2_get)
-	ZEND_FE(snmp2_getnext, arginfo_snmp2_getnext)
-	ZEND_FE(snmp2_walk, arginfo_snmp2_walk)
-	ZEND_FE(snmp2_real_walk, arginfo_snmp2_real_walk)
-	ZEND_FE(snmp2_set, arginfo_snmp2_set)
-	ZEND_FE(snmp3_get, arginfo_snmp3_get)
-	ZEND_FE(snmp3_getnext, arginfo_snmp3_getnext)
-	ZEND_FE(snmp3_walk, arginfo_snmp3_walk)
-	ZEND_FE(snmp3_real_walk, arginfo_snmp3_real_walk)
-	ZEND_FE(snmp3_set, arginfo_snmp3_set)
-	ZEND_FE(snmp_set_valueretrieval, arginfo_snmp_set_valueretrieval)
-	ZEND_FE(snmp_get_valueretrieval, arginfo_snmp_get_valueretrieval)
-	ZEND_FE(snmp_read_mib, arginfo_snmp_read_mib)
+	ZEND_RAW_FENTRY("snmpget", zif_snmpget, arginfo_snmpget, 0, NULL, "/**\n * Fetch an SNMP object\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("snmpgetnext", zif_snmpgetnext, arginfo_snmpgetnext, 0, NULL, "/**\n * Fetch the SNMP object which follows the given object id\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("snmpwalk", zif_snmpwalk, arginfo_snmpwalk, 0, NULL, "/**\n * Fetch all the SNMP objects from an agent\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("snmprealwalk", zif_snmprealwalk, arginfo_snmprealwalk, 0, NULL, "/**\n * Return all objects including their respective object ID within the specified one\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("snmpwalkoid", zif_snmprealwalk, arginfo_snmpwalkoid, 0, NULL, "/**\n * Query for a tree of information about a network entity\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("snmpset", zif_snmpset, arginfo_snmpset, 0, NULL, "/**\n * Set the value of an SNMP object\n * @return bool\n */")
+	ZEND_RAW_FENTRY("snmp_get_quick_print", zif_snmp_get_quick_print, arginfo_snmp_get_quick_print, 0, NULL, "/**\n * Fetches the current value of the NET-SNMP library\'s quick_print setting\n * @return bool\n */")
+	ZEND_RAW_FENTRY("snmp_set_quick_print", zif_snmp_set_quick_print, arginfo_snmp_set_quick_print, 0, NULL, "/**\n * Set the value of enable within the NET-SNMP library\n * @return true\n */")
+	ZEND_RAW_FENTRY("snmp_set_enum_print", zif_snmp_set_enum_print, arginfo_snmp_set_enum_print, 0, NULL, "/**\n * Return all values that are enums with their enum value instead of the raw integer\n * @return true\n */")
+	ZEND_RAW_FENTRY("snmp_set_oid_output_format", zif_snmp_set_oid_output_format, arginfo_snmp_set_oid_output_format, 0, NULL, "/**\n * Set the OID output format\n * @return true\n */")
+	ZEND_RAW_FENTRY("snmp_set_oid_numeric_print", zif_snmp_set_oid_output_format, arginfo_snmp_set_oid_numeric_print, 0, NULL, "/**\n * Alias snmp_set_oid_output_format\n */")
+	ZEND_RAW_FENTRY("snmp2_get", zif_snmp2_get, arginfo_snmp2_get, 0, NULL, "/**\n * Fetch an SNMP object\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("snmp2_getnext", zif_snmp2_getnext, arginfo_snmp2_getnext, 0, NULL, "/**\n * Fetch the SNMP object which follows the given object id\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("snmp2_walk", zif_snmp2_walk, arginfo_snmp2_walk, 0, NULL, "/**\n * Fetch all the SNMP objects from an agent\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("snmp2_real_walk", zif_snmp2_real_walk, arginfo_snmp2_real_walk, 0, NULL, "/**\n * Return all objects including their respective object ID within the specified one\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("snmp2_set", zif_snmp2_set, arginfo_snmp2_set, 0, NULL, "/**\n * Set the value of an SNMP object\n * @return bool\n */")
+	ZEND_RAW_FENTRY("snmp3_get", zif_snmp3_get, arginfo_snmp3_get, 0, NULL, "/**\n * Fetch an SNMP object\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("snmp3_getnext", zif_snmp3_getnext, arginfo_snmp3_getnext, 0, NULL, "/**\n * Fetch the SNMP object which follows the given object id\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("snmp3_walk", zif_snmp3_walk, arginfo_snmp3_walk, 0, NULL, "/**\n * Fetch all the SNMP objects from an agent\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("snmp3_real_walk", zif_snmp3_real_walk, arginfo_snmp3_real_walk, 0, NULL, "/**\n * Return all objects including their respective object ID within the specified one\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("snmp3_set", zif_snmp3_set, arginfo_snmp3_set, 0, NULL, "/**\n * Set the value of an SNMP object\n * @return bool\n */")
+	ZEND_RAW_FENTRY("snmp_set_valueretrieval", zif_snmp_set_valueretrieval, arginfo_snmp_set_valueretrieval, 0, NULL, "/**\n * Specify the method how the SNMP values will be returned\n * @return true\n */")
+	ZEND_RAW_FENTRY("snmp_get_valueretrieval", zif_snmp_get_valueretrieval, arginfo_snmp_get_valueretrieval, 0, NULL, "/**\n * Return the method how the SNMP values will be returned\n * @return int\n */")
+	ZEND_RAW_FENTRY("snmp_read_mib", zif_snmp_read_mib, arginfo_snmp_read_mib, 0, NULL, "/**\n * Reads and parses a MIB file into the active MIB tree\n * @return bool\n */")
 	ZEND_FE_END
 };
 

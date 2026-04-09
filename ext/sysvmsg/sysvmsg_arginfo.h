@@ -1,5 +1,5 @@
 /* This is a generated file, edit sysvmsg.stub.php instead.
- * Stub hash: ed5b1e4e5dda6a65ce336fc4daa975520c354f17 */
+ * Stub hash: e3d55dd449034b7600411aaf27a11685ee0e8094 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_msg_get_queue, 0, 1, SysvMessageQueue, MAY_BE_FALSE)
 	ZEND_ARG_TYPE_INFO(0, key, IS_LONG, 0)
@@ -52,13 +52,13 @@ ZEND_FUNCTION(msg_set_queue);
 ZEND_FUNCTION(msg_queue_exists);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(msg_get_queue, arginfo_msg_get_queue)
-	ZEND_FE(msg_send, arginfo_msg_send)
-	ZEND_FE(msg_receive, arginfo_msg_receive)
-	ZEND_FE(msg_remove_queue, arginfo_msg_remove_queue)
-	ZEND_FE(msg_stat_queue, arginfo_msg_stat_queue)
-	ZEND_FE(msg_set_queue, arginfo_msg_set_queue)
-	ZEND_FE(msg_queue_exists, arginfo_msg_queue_exists)
+	ZEND_RAW_FENTRY("msg_get_queue", zif_msg_get_queue, arginfo_msg_get_queue, 0, NULL, "/**\n * Create or attach to a message queue\n * @return SysvMessageQueue|false\n */")
+	ZEND_RAW_FENTRY("msg_send", zif_msg_send, arginfo_msg_send, 0, NULL, "/**\n * Send a message to a message queue\n * @return bool\n */")
+	ZEND_RAW_FENTRY("msg_receive", zif_msg_receive, arginfo_msg_receive, 0, NULL, "/**\n * Receive a message from a message queue\n * @return bool\n */")
+	ZEND_RAW_FENTRY("msg_remove_queue", zif_msg_remove_queue, arginfo_msg_remove_queue, 0, NULL, "/**\n * Destroy a message queue\n * @return bool\n */")
+	ZEND_RAW_FENTRY("msg_stat_queue", zif_msg_stat_queue, arginfo_msg_stat_queue, 0, NULL, "/**\n * Returns information from the message queue data structure\n * @return array|false\n */")
+	ZEND_RAW_FENTRY("msg_set_queue", zif_msg_set_queue, arginfo_msg_set_queue, 0, NULL, "/**\n * Set information in the message queue data structure\n * @return bool\n */")
+	ZEND_RAW_FENTRY("msg_queue_exists", zif_msg_queue_exists, arginfo_msg_queue_exists, 0, NULL, "/**\n * Check whether a message queue exists\n * @return bool\n */")
 	ZEND_FE_END
 };
 

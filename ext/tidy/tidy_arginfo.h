@@ -1,5 +1,5 @@
 /* This is a generated file, edit tidy.stub.php instead.
- * Stub hash: 0e6561410a63658f76011c1ddcecdd1e68757f0a */
+ * Stub hash: c6c962fc6143e7c48d57b04b555a987d21c98af3 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_tidy_parse_string, 0, 1, tidy, MAY_BE_FALSE)
 	ZEND_ARG_TYPE_INFO(0, string, IS_STRING, 0)
@@ -12,7 +12,7 @@ ZEND_BEGIN_ARG_WITH_RETURN_TYPE_MASK_EX(arginfo_tidy_get_error_buffer, 0, 1, MAY
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_tidy_get_output, 0, 1, IS_STRING, 0)
-	ZEND_ARG_OBJ_INFO(0, tidy, tidy, 0)
+	ZEND_ARG_OBJ_INFO_DOCCOMMENT(0, tidy, tidy, 0, "The Tidy object.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_tidy_parse_file, 0, 1, tidy, MAY_BE_FALSE)
@@ -232,7 +232,7 @@ ZEND_METHOD(tidyNode, getNextSibling);
 static const zend_function_entry ext_functions[] = {
 	ZEND_FE(tidy_parse_string, arginfo_tidy_parse_string)
 	ZEND_FE(tidy_get_error_buffer, arginfo_tidy_get_error_buffer)
-	ZEND_FE(tidy_get_output, arginfo_tidy_get_output)
+	ZEND_RAW_FENTRY("tidy_get_output", zif_tidy_get_output, arginfo_tidy_get_output, 0, NULL, "/**\n * Return a string representing the parsed tidy markup\n * @param tidy $tidy The Tidy object.\n * @return string\n */")
 	ZEND_FE(tidy_parse_file, arginfo_tidy_parse_file)
 	ZEND_FE(tidy_clean_repair, arginfo_tidy_clean_repair)
 	ZEND_FE(tidy_repair_string, arginfo_tidy_repair_string)
@@ -247,10 +247,10 @@ static const zend_function_entry ext_functions[] = {
 	ZEND_FE(tidy_get_html_ver, arginfo_tidy_get_html_ver)
 	ZEND_FE(tidy_is_xhtml, arginfo_tidy_is_xhtml)
 	ZEND_FE(tidy_is_xml, arginfo_tidy_is_xml)
-	ZEND_FE(tidy_error_count, arginfo_tidy_error_count)
-	ZEND_FE(tidy_warning_count, arginfo_tidy_warning_count)
-	ZEND_FE(tidy_access_count, arginfo_tidy_access_count)
-	ZEND_FE(tidy_config_count, arginfo_tidy_config_count)
+	ZEND_RAW_FENTRY("tidy_error_count", zif_tidy_error_count, arginfo_tidy_error_count, 0, NULL, "/**\n * Returns the Number of Tidy errors encountered for specified document\n * @param tidy $tidy The Tidy object.\n * @return int\n */")
+	ZEND_RAW_FENTRY("tidy_warning_count", zif_tidy_warning_count, arginfo_tidy_warning_count, 0, NULL, "/**\n * Returns the Number of Tidy warnings encountered for specified document\n * @param tidy $tidy The Tidy object.\n * @return int\n */")
+	ZEND_RAW_FENTRY("tidy_access_count", zif_tidy_access_count, arginfo_tidy_access_count, 0, NULL, "/**\n * Returns the Number of Tidy accessibility warnings encountered for specified document\n * @param tidy $tidy The Tidy object.\n * @return int\n */")
+	ZEND_RAW_FENTRY("tidy_config_count", zif_tidy_config_count, arginfo_tidy_config_count, 0, NULL, "/**\n * Returns the Number of Tidy configuration errors encountered for specified document\n * @param tidy $tidy The Tidy object.\n * @return int\n */")
 	ZEND_FE(tidy_getopt, arginfo_tidy_getopt)
 	ZEND_FE(tidy_get_root, arginfo_tidy_get_root)
 	ZEND_FE(tidy_get_html, arginfo_tidy_get_html)

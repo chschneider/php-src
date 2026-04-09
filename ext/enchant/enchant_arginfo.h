@@ -1,5 +1,5 @@
 /* This is a generated file, edit enchant.stub.php instead.
- * Stub hash: 31974eb901477da53ede7476953d461d32f772ba */
+ * Stub hash: 7fe097fb1a7678ab8b9bb7db51aa3dc435df036b */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_enchant_broker_init, 0, 0, EnchantBroker, MAY_BE_FALSE)
 ZEND_END_ARG_INFO()
@@ -126,31 +126,31 @@ ZEND_FUNCTION(enchant_dict_get_error);
 ZEND_FUNCTION(enchant_dict_describe);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(enchant_broker_init, arginfo_enchant_broker_init)
+	ZEND_RAW_FENTRY("enchant_broker_init", zif_enchant_broker_init, arginfo_enchant_broker_init, 0, NULL, "/**\n * Create a new broker object capable of requesting\n * @return EnchantBroker|false\n */")
 	ZEND_RAW_FENTRY("enchant_broker_free", zif_enchant_broker_free, arginfo_enchant_broker_free, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(enchant_broker_get_error, arginfo_enchant_broker_get_error)
+	ZEND_RAW_FENTRY("enchant_broker_get_error", zif_enchant_broker_get_error, arginfo_enchant_broker_get_error, 0, NULL, "/**\n * Returns the last error of the broker\n * @return string|false\n */")
 	ZEND_RAW_FENTRY("enchant_broker_set_dict_path", zif_enchant_broker_set_dict_path, arginfo_enchant_broker_set_dict_path, ZEND_ACC_DEPRECATED, NULL, NULL)
 	ZEND_RAW_FENTRY("enchant_broker_get_dict_path", zif_enchant_broker_get_dict_path, arginfo_enchant_broker_get_dict_path, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(enchant_broker_list_dicts, arginfo_enchant_broker_list_dicts)
-	ZEND_FE(enchant_broker_request_dict, arginfo_enchant_broker_request_dict)
-	ZEND_FE(enchant_broker_request_pwl_dict, arginfo_enchant_broker_request_pwl_dict)
+	ZEND_RAW_FENTRY("enchant_broker_list_dicts", zif_enchant_broker_list_dicts, arginfo_enchant_broker_list_dicts, 0, NULL, "/**\n * Returns a list of available dictionaries\n * @return array\n */")
+	ZEND_RAW_FENTRY("enchant_broker_request_dict", zif_enchant_broker_request_dict, arginfo_enchant_broker_request_dict, 0, NULL, "/**\n * Create a new dictionary using a tag\n * @return EnchantDictionary|false\n */")
+	ZEND_RAW_FENTRY("enchant_broker_request_pwl_dict", zif_enchant_broker_request_pwl_dict, arginfo_enchant_broker_request_pwl_dict, 0, NULL, "/**\n * Creates a dictionary using a PWL file\n * @return EnchantDictionary|false\n */")
 	ZEND_RAW_FENTRY("enchant_broker_free_dict", zif_enchant_broker_free_dict, arginfo_enchant_broker_free_dict, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(enchant_broker_dict_exists, arginfo_enchant_broker_dict_exists)
-	ZEND_FE(enchant_broker_set_ordering, arginfo_enchant_broker_set_ordering)
-	ZEND_FE(enchant_broker_describe, arginfo_enchant_broker_describe)
-	ZEND_FE(enchant_dict_quick_check, arginfo_enchant_dict_quick_check)
-	ZEND_FE(enchant_dict_check, arginfo_enchant_dict_check)
-	ZEND_FE(enchant_dict_suggest, arginfo_enchant_dict_suggest)
-	ZEND_FE(enchant_dict_add, arginfo_enchant_dict_add)
+	ZEND_RAW_FENTRY("enchant_broker_dict_exists", zif_enchant_broker_dict_exists, arginfo_enchant_broker_dict_exists, 0, NULL, "/**\n * Whether a dictionary exists or not. Using non-empty tag\n * @return bool\n */")
+	ZEND_RAW_FENTRY("enchant_broker_set_ordering", zif_enchant_broker_set_ordering, arginfo_enchant_broker_set_ordering, 0, NULL, "/**\n * Declares a preference of dictionaries to use for the language\n * @return bool\n */")
+	ZEND_RAW_FENTRY("enchant_broker_describe", zif_enchant_broker_describe, arginfo_enchant_broker_describe, 0, NULL, "/**\n * Enumerates the Enchant providers\n * @return array\n */")
+	ZEND_RAW_FENTRY("enchant_dict_quick_check", zif_enchant_dict_quick_check, arginfo_enchant_dict_quick_check, 0, NULL, "/**\n * Check the word is correctly spelled and provide suggestions\n * @return bool\n */")
+	ZEND_RAW_FENTRY("enchant_dict_check", zif_enchant_dict_check, arginfo_enchant_dict_check, 0, NULL, "/**\n * Check whether a word is correctly spelled or not\n * @return bool\n */")
+	ZEND_RAW_FENTRY("enchant_dict_suggest", zif_enchant_dict_suggest, arginfo_enchant_dict_suggest, 0, NULL, "/**\n * Will return a list of values if any of those pre-conditions are not met\n * @return array\n */")
+	ZEND_RAW_FENTRY("enchant_dict_add", zif_enchant_dict_add, arginfo_enchant_dict_add, 0, NULL, "/**\n * Add a word to personal word list\n * @return void\n */")
 	ZEND_FE(enchant_dict_remove, arginfo_enchant_dict_remove)
 	ZEND_RAW_FENTRY("enchant_dict_add_to_personal", zif_enchant_dict_add, arginfo_enchant_dict_add_to_personal, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(enchant_dict_add_to_session, arginfo_enchant_dict_add_to_session)
+	ZEND_RAW_FENTRY("enchant_dict_add_to_session", zif_enchant_dict_add_to_session, arginfo_enchant_dict_add_to_session, 0, NULL, "/**\n * Add \'word\' to this spell-checking session\n * @return void\n */")
 	ZEND_FE(enchant_dict_remove_from_session, arginfo_enchant_dict_remove_from_session)
-	ZEND_FE(enchant_dict_is_added, arginfo_enchant_dict_is_added)
+	ZEND_RAW_FENTRY("enchant_dict_is_added", zif_enchant_dict_is_added, arginfo_enchant_dict_is_added, 0, NULL, "/**\n * Whether or not \'word\' exists in this spelling-session\n * @return bool\n */")
 	ZEND_RAW_FENTRY("enchant_dict_is_in_session", zif_enchant_dict_is_added, arginfo_enchant_dict_is_in_session, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(enchant_dict_store_replacement, arginfo_enchant_dict_store_replacement)
-	ZEND_FE(enchant_dict_get_error, arginfo_enchant_dict_get_error)
-	ZEND_FE(enchant_dict_describe, arginfo_enchant_dict_describe)
+	ZEND_RAW_FENTRY("enchant_dict_store_replacement", zif_enchant_dict_store_replacement, arginfo_enchant_dict_store_replacement, 0, NULL, "/**\n * Add a correction for a word\n * @return void\n */")
+	ZEND_RAW_FENTRY("enchant_dict_get_error", zif_enchant_dict_get_error, arginfo_enchant_dict_get_error, 0, NULL, "/**\n * Returns the last error of the current spelling-session\n * @return string|false\n */")
+	ZEND_RAW_FENTRY("enchant_dict_describe", zif_enchant_dict_describe, arginfo_enchant_dict_describe, 0, NULL, "/**\n * Describes an individual dictionary\n * @return array\n */")
 	ZEND_FE_END
 };
 

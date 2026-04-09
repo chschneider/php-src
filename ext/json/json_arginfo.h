@@ -1,23 +1,23 @@
 /* This is a generated file, edit json.stub.php instead.
- * Stub hash: 0ceb50047401c4b9e878c09cc518eacc274f7fff */
+ * Stub hash: 4485574e81bfae8a29de9092a59688f75938acf0 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_MASK_EX(arginfo_json_encode, 0, 1, MAY_BE_STRING|MAY_BE_FALSE)
-	ZEND_ARG_TYPE_INFO(0, value, IS_MIXED, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, flags, IS_LONG, 0, "0")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, depth, IS_LONG, 0, "512")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, value, IS_MIXED, 0, "The value being encoded. Can be any type except a resource.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, flags, IS_LONG, 0, "0", "Bitmask consisting of JSON_FORCE_OBJECT, JSON_HEX_QUOT, JSON_HEX_TAG, JSON_HEX_AMP, JSON_HEX_APOS, JSON_INVALID_UTF8_IGNORE, JSON_INVALID_UTF8_SUBSTITUTE, JSON_NUMERIC_CHECK, JSON_PARTIAL_OUTPUT_ON_ERROR, JSON_PRESERVE_ZERO_FRACTION, JSON_PRETTY_PRINT, JSON_UNESCAPED_LINE_TERMINATORS, JSON_UNESCAPED_SLASHES, JSON_UNESCAPED_UNICODE, JSON_THROW_ON_ERROR. The behaviour of these constants is described on the JSON constants page.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, depth, IS_LONG, 0, "512", "Set the maximum depth. Must be greater than zero.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_json_decode, 0, 1, IS_MIXED, 0)
-	ZEND_ARG_TYPE_INFO(0, json, IS_STRING, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, associative, _IS_BOOL, 1, "null")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, depth, IS_LONG, 0, "512")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, flags, IS_LONG, 0, "0")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, json, IS_STRING, 0, "The json string being decoded.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, associative, _IS_BOOL, 1, "null", "When true, JSON objects will be returned as associative arrays; when false, JSON objects will be returned as objects. When null, JSON objects will be returned as associative arrays or objects depending on whether JSON_OBJECT_AS_ARRAY is set in the flags.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, depth, IS_LONG, 0, "512", "Maximum nesting depth of the structure being decoded. The value must be greater than 0, and less than or equal to 2147483647.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, flags, IS_LONG, 0, "0", "Bitmask of JSON_BIGINT_AS_STRING, JSON_INVALID_UTF8_IGNORE, JSON_INVALID_UTF8_SUBSTITUTE, JSON_OBJECT_AS_ARRAY, JSON_THROW_ON_ERROR. The behaviour of these constants is described on the JSON constants page.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_json_validate, 0, 1, _IS_BOOL, 0)
-	ZEND_ARG_TYPE_INFO(0, json, IS_STRING, 0)
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, depth, IS_LONG, 0, "512")
-	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE(0, flags, IS_LONG, 0, "0")
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, json, IS_STRING, 0, "The string to validate.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, depth, IS_LONG, 0, "512", "Maximum nesting depth of the structure being decoded. The value must be greater than 0, and less than or equal to 2147483647.")
+	ZEND_ARG_TYPE_INFO_WITH_DEFAULT_VALUE_DOCCOMMENT(0, flags, IS_LONG, 0, "0", "Currently only JSON_INVALID_UTF8_IGNORE is accepted.")
 ZEND_END_ARG_INFO()
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_json_last_error, 0, 0, IS_LONG, 0)
@@ -36,11 +36,11 @@ ZEND_FUNCTION(json_last_error);
 ZEND_FUNCTION(json_last_error_msg);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(json_encode, arginfo_json_encode)
-	ZEND_FE(json_decode, arginfo_json_decode)
-	ZEND_FE(json_validate, arginfo_json_validate)
-	ZEND_FE(json_last_error, arginfo_json_last_error)
-	ZEND_FE(json_last_error_msg, arginfo_json_last_error_msg)
+	ZEND_RAW_FENTRY("json_encode", zif_json_encode, arginfo_json_encode, 0, NULL, "/**\n * Returns the JSON representation of a value\n * @param mixed $value The value being encoded. Can be any type except a resource.\n * @param int $flags Bitmask consisting of JSON_FORCE_OBJECT, JSON_HEX_QUOT, JSON_HEX_TAG, JSON_HEX_AMP, JSON_HEX_APOS, JSON_INVALID_UTF8_IGNORE, JSON_INVALID_UTF8_SUBSTITUTE, JSON_NUMERIC_CHECK, JSON_PARTIAL_OUTPUT_ON_ERROR, JSON_PRESERVE_ZERO_FRACTION, JSON_PRETTY_PRINT, JSON_UNESCAPED_LINE_TERMINATORS, JSON_UNESCAPED_SLASHES, JSON_UNESCAPED_UNICODE, JSON_THROW_ON_ERROR. The behaviour of these constants is described on the JSON constants page.\n * @param int $depth Set the maximum depth. Must be greater than zero.\n * @return string|false\n */")
+	ZEND_RAW_FENTRY("json_decode", zif_json_decode, arginfo_json_decode, 0, NULL, "/**\n * Decodes a JSON string\n * @param string $json The json string being decoded.\n * @param bool|null $associative When true, JSON objects will be returned as associative arrays; when false, JSON objects will be returned as objects. When null, JSON objects will be returned as associative arrays or objects depending on whether JSON_OBJECT_AS_ARRAY is set in the flags.\n * @param int $depth Maximum nesting depth of the structure being decoded. The value must be greater than 0, and less than or equal to 2147483647.\n * @param int $flags Bitmask of JSON_BIGINT_AS_STRING, JSON_INVALID_UTF8_IGNORE, JSON_INVALID_UTF8_SUBSTITUTE, JSON_OBJECT_AS_ARRAY, JSON_THROW_ON_ERROR. The behaviour of these constants is described on the JSON constants page.\n * @return mixed\n */")
+	ZEND_RAW_FENTRY("json_validate", zif_json_validate, arginfo_json_validate, 0, NULL, "/**\n * Checks if a string contains valid JSON\n * @param string $json The string to validate.\n * @param int $depth Maximum nesting depth of the structure being decoded. The value must be greater than 0, and less than or equal to 2147483647.\n * @param int $flags Currently only JSON_INVALID_UTF8_IGNORE is accepted.\n * @return bool\n */")
+	ZEND_RAW_FENTRY("json_last_error", zif_json_last_error, arginfo_json_last_error, 0, NULL, "/**\n * Returns the last error occurred\n * @return int\n */")
+	ZEND_RAW_FENTRY("json_last_error_msg", zif_json_last_error_msg, arginfo_json_last_error_msg, 0, NULL, "/**\n * Returns the error string of the last json_validate(), json_encode() or json_decode() call\n * @return string\n */")
 	ZEND_FE_END
 };
 

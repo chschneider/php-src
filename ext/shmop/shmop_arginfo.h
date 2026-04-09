@@ -1,9 +1,9 @@
 /* This is a generated file, edit shmop.stub.php instead.
- * Stub hash: e7f250077b6721539caee96afe4ed392396018f9 */
+ * Stub hash: 6a39445d79ffb799042d8a7a97ae4a093d374db7 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_OBJ_TYPE_MASK_EX(arginfo_shmop_open, 0, 4, Shmop, MAY_BE_FALSE)
 	ZEND_ARG_TYPE_INFO(0, key, IS_LONG, 0)
-	ZEND_ARG_TYPE_INFO(0, mode, IS_STRING, 0)
+	ZEND_ARG_TYPE_INFO_DOCCOMMENT(0, mode, IS_STRING, 0, "The flags that you can use: \"a\" for access (sets SHM_RDONLY for shmat) use this flag when you need to open an existing shared memory segment for read only \"c\" for create (sets IPC_CREATE) use this flag when you need to create a new shared memory segment or if a segment with the same key exists, try to open it for read and write \"w\" for read & write access use this flag when you need to read and write to a shared memory segment, use this flag in most cases. \"n\" create a new memory segment (sets IPC_CREATE|IPC_EXCL) use this flag when you want to create a new shared memory segment but if one already exists with the same flag, fail. This is useful for security purposes, using this you can prevent race condition exploits.")
 	ZEND_ARG_TYPE_INFO(0, permissions, IS_LONG, 0)
 	ZEND_ARG_TYPE_INFO(0, size, IS_LONG, 0)
 ZEND_END_ARG_INFO()
@@ -40,12 +40,12 @@ ZEND_FUNCTION(shmop_write);
 ZEND_FUNCTION(shmop_delete);
 
 static const zend_function_entry ext_functions[] = {
-	ZEND_FE(shmop_open, arginfo_shmop_open)
-	ZEND_FE(shmop_read, arginfo_shmop_read)
+	ZEND_RAW_FENTRY("shmop_open", zif_shmop_open, arginfo_shmop_open, 0, NULL, "/**\n * Create or open shared memory block\n * @param string $mode The flags that you can use: \"a\" for access (sets SHM_RDONLY for shmat) use this flag when you need to open an existing shared memory segment for read only \"c\" for create (sets IPC_CREATE) use this flag when you need to create a new shared memory segment or if a segment with the same key exists, try to open it for read and write \"w\" for read & write access use this flag when you need to read and write to a shared memory segment, use this flag in most cases. \"n\" create a new memory segment (sets IPC_CREATE|IPC_EXCL) use this flag when you want to create a new shared memory segment but if one already exists with the same flag, fail. This is useful for security purposes, using this you can prevent race condition exploits.\n * @return Shmop|false\n */")
+	ZEND_RAW_FENTRY("shmop_read", zif_shmop_read, arginfo_shmop_read, 0, NULL, "/**\n * Read data from shared memory block\n * @return string\n */")
 	ZEND_RAW_FENTRY("shmop_close", zif_shmop_close, arginfo_shmop_close, ZEND_ACC_DEPRECATED, NULL, NULL)
-	ZEND_FE(shmop_size, arginfo_shmop_size)
-	ZEND_FE(shmop_write, arginfo_shmop_write)
-	ZEND_FE(shmop_delete, arginfo_shmop_delete)
+	ZEND_RAW_FENTRY("shmop_size", zif_shmop_size, arginfo_shmop_size, 0, NULL, "/**\n * Get size of shared memory block\n * @return int\n */")
+	ZEND_RAW_FENTRY("shmop_write", zif_shmop_write, arginfo_shmop_write, 0, NULL, "/**\n * Write data into shared memory block\n * @return int\n */")
+	ZEND_RAW_FENTRY("shmop_delete", zif_shmop_delete, arginfo_shmop_delete, 0, NULL, "/**\n * Delete shared memory block\n * @return bool\n */")
 	ZEND_FE_END
 };
 
