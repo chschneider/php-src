@@ -31,7 +31,7 @@ function dumpFuncInfo($name) {
 
 dumpFuncInfo('foo');
 dumpFuncInfo('bar');
-dumpFuncInfo('extract');
+dumpFuncInfo('clone');
 
 ?>
 --EXPECTF--
