@@ -35,6 +35,11 @@ if (isset($opts['help'])) {
 
 $doc_path = $opts['doc-path'] ?? '../doc-en';
 
+if (!file_exists("$doc_path/language-defs.ent")) {
+	fputs(STDERR, "No document repository found at '$doc_path', use --doc-path to use another path\n");
+	exit(1);
+}
+
 #
 # Parse DocBook documentation for internal functions and extract parameter types and descriptions
 #
