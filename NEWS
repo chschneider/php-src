@@ -43,6 +43,8 @@ PHP                                                                        NEWS
 
 - GMP:
   . gmp_fact() reject values larger than unsigned long. (David Carlier)
+  . gmp_pow/binomial/root/rootrem and shift/pow operators reject values
+    larger than unsigned long. (David Carlier)
 
 - Hash:
   . Upgrade xxHash to 0.8.2. (timwolla)
@@ -166,6 +168,8 @@ PHP                                                                        NEWS
     throw a ValueError. (alexandre-daubois)
   . array_change_key_case() now raises a ValueError when an invalid $case
     argument value is passed. (Girgias)
+  . linkinfo() now raises a ValueError when the argument is an empty string.
+    (Weilin Du)
 
 - Streams:
   . Added so_keepalive, tcp_keepidle, tcp_keepintvl and tcp_keepcnt stream
